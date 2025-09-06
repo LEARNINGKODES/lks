@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learning Kodes</title>
+  <link rel="stylesheet" href="juego.css" />
+  <style>
+    #explicacion-texto {
+      user-select: none;
+    }
+    .registro {
+      padding:20px;
+      text-align:center;
+      border-bottom:2px solid #ccc;
+    }
+    .registro input {
+      padding:5px;
+      margin:5px;
+    }
+    .lista-registrados {
+      margin-top:10px;
+      text-align:center;
+    }
+    .lista-registrados ul {
+      list-style:none;
+      padding:0;
+    }
+    .lista-registrados li {
+      margin:3px 0;
+    }
+    iframe {
+      width:100%;
+      height:150px;
+      border:1px solid #ccc;
+      margin-top:10px;
+    }
+  </style>
+</head>
+<body>
+<!-- === REGISTRO AL INICIO === -->
+<div class="registro" id="pantalla-registro">
+  <h2>Registro</h2>
+  <p>Escribe tu nombre para empezar el juego:</p>
+  <input type="text" id="nombreRegistro" placeholder="Tu nombre">
+  <button onclick="registrarJugador()">Registrar y empezar</button>
+
+  <div class="lista-registrados">
+    <h3>Personas registradas:</h3>
+    <ul id="listaRegistrados"></ul>
+  </div>
+</div>
+
+<!-- === BARRA SUPERIOR === -->
+<header class="barra-superior" style="display:none;" id="headerJuego">
+  <h1><a class="INICIO" href="index.html">LEARNING KODES</a></h1>
+  <p>Aprende HTML y CSS paso a paso con nuestra abeja guía</p>
+</header>
+
+<!-- === EXPLICACIÓN Y JUEGO === -->
+<div id="explicacion" class="explicacion" style="display:none;">
+  <img src="./img/Logotipo.png" class="abeja" alt="abeja guia" />
+  <p id="explicacion-texto"></p>
+</div>
+
+<div id="pantalla-css" style="display:none; text-align:center; padding:20px;">
+  <h2>¡Felicidades!</h2>
+  <p>Has completado los 10 niveles de <b>HTML</b>.  
+  Ahora ya sabes lo básico de cómo crear la estructura de una página web con etiquetas.</p>
+  <p>Pero una página no solo necesita estructura, también necesita <b>estilo</b>: colores, tamaños, formas, márgenes...  
+  Para eso existe <b>CSS</b>, que trabaja junto al HTML para darle diseño.</p>
+  <button onclick="empezarCSS()">Empezar CSS</button>
+</div>
+
+<div class="zona-juego" style="display:none;">
+  <div class="escenario" id="escenario">
+    <div><h1>Hola</h1></div>
+    <div><p>Esto es un párrafo</p></div>
+    <div><br>NIKOLL Y ANGIE MIS DULCE PRINCESAS</div>
+    <div><b>LEARNINGKODES</b></div>
+    <div><h3>©JLMN & FSDM STUDIOS</h3></div>
+  </div>
+
+  <div class="panel-control">
+    <label for="htmlInput">Escribe el <b>HTML</b>:</label>
+    <textarea id="htmlInput" rows="4" placeholder="Ej: &lt;h1&gt;Hola&lt;/h1&gt;" oninput="actualizarVista()"></textarea>
+
+    <div id="panelCSS" style="display:none; margin-top:10px;">
+      <label for="cssInput">Escribe el <b>CSS</b>:</label>
+      <textarea id="cssInput" rows="4" placeholder="Ej: .caja1 { width:100px; height:100px; background:black; }" oninput="actualizarVista()"></textarea>
+    </div>
+
+    <button onclick="verificarCodigo()">Verificar</button>
+    <p id="mensaje"></p>
+
+    <h3>Vista previa:</h3>
+    <iframe id="vista-previa"></iframe>
+  </div>
+</div>
+
+<div class="controles" style="display:none;" id="controlesJuego">
+  <button onclick="nivelAnterior()">Anterior</button>
+  <button onclick="siguienteNivel()" id="btnSiguiente" style="display:none;">Siguiente</button>
+</div>
+
+<!-- === FINAL === -->
+<div class="controles" style="display:none;" id="fin-juego">
+  <p>¡Felicidades! Has terminado todos los niveles</p>
+  <div class="lista-registrados">
+    <h3>Personas registradas:</h3>
+    <ul id="listaRegistradosFinal"></ul>
+  </div>
+  <button onclick="location.href='index.html'">Volver al inicio</button>
+</div>
+
+<script>
+ document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    document.title = "Regresa :'(";
+  } else {
+    document.title = "Gracias por volver ^⁠_⁠^";
+  }
+ });
+let nivelActual = 0;
+
+// ===== REGISTRO =====
+function obtenerFechaHoy() {
+  const hoy = new Date();
+  return hoy.toLocaleDateString();
+}
+
+function cargarRegistrados() {
+  const lista = JSON.parse(localStorage.getItem("jugadores")) || [];
+  const ul = document.getElementById("listaRegistrados");
+  ul.innerHTML = "";
+  lista.forEach(j => {
+    const li = document.createElement("li");
+    li.textContent = `${j.nombre} — ${j.fecha}`;
+    ul.appendChild(li);
+  });
+}
+
+function registrarJugador() {
+  const nombre = document.getElementById("nombreRegistro").value.trim();
+  if (!nombre) {
+    alert("Escribe un nombre para registrarte");
+    return;
+  }
+  const jugadores = JSON.parse(localStorage.getItem("jugadores")) || [];
+  jugadores.push({nombre, fecha: obtenerFechaHoy()});
+  localStorage.setItem("jugadores", JSON.stringify(jugadores));
+  cargarRegistrados();
+
+  // Ocultar registro y mostrar juego
+  document.getElementById("pantalla-registro").style.display = "none";
+  document.getElementById("headerJuego").style.display = "block";
+  document.querySelector(".zona-juego").style.display = "flex";
+  document.getElementById("explicacion").style.display = "flex";
+  document.getElementById("controlesJuego").style.display = "block";
+  cargarNivel();
+}
+
+// ===== LISTA FINAL =====
+function mostrarRegistradosFinal() {
+  const lista = JSON.parse(localStorage.getItem("jugadores")) || [];
+  const ul = document.getElementById("listaRegistradosFinal");
+  ul.innerHTML = "";
+  lista.forEach(j => {
+    const li = document.createElement("li");
+    li.textContent = `${j.nombre} — ${j.fecha}`;
+    ul.appendChild(li);
+  });
+}
+
+// ===== FUNCIONES DE JUEGO =====
+function cargarNivel() {
+  const nivel = niveles[nivelActual];
+  document.getElementById("explicacion-texto").innerText = nivel.instruccion + "\n" + nivel.explicacion;
+
+  // Reset inputs
+  document.getElementById("htmlInput").value = "";
+  document.getElementById("cssInput").value = "";
+
+  // Mostrar/ocultar panel CSS
+  if (nivel.tipo === "css") {
+    document.getElementById("panelCSS").style.display = "block";
+  } else {
+    document.getElementById("panelCSS").style.display = "none";
+  }
+
+  // Ocultar botón siguiente hasta que valide
+  document.getElementById("btnSiguiente").style.display = "none";
+  document.getElementById("mensaje").textContent = "";
+  actualizarVista();
+}
+
+function verificarCodigo() {
+  const html = document.getElementById("htmlInput").value;
+  const css = document.getElementById("cssInput").value;
+  const nivel = niveles[nivelActual];
+  let correcto = false;
+
+  if (nivel.tipo === "html") {
+    correcto = nivel.validar(html, css);
+  } else {
+    const tagRegex = new RegExp(`<${nivel.htmlRequerido.tag}\\s+class=["']${nivel.htmlRequerido.clase}["'].*>.*</${nivel.htmlRequerido.tag}>`, "i");
+    correcto = tagRegex.test(html);
+    if (correcto) {
+      correcto = nivel.propsCSS.every(r => r.test(css));
+    }
+  }
+
+  const mensaje = document.getElementById("mensaje");
+  if (correcto) {
+  document.getElementById("mensaje").innerText = " ¡Muy bien!";
+  document.getElementById("mensaje").style.color = "blue";
+  document.getElementById("btnSiguiente").style.display = "inline-block";
+} else {
+  document.getElementById("mensaje").innerText = " Intenta otra vez.";
+  document.getElementById("mensaje").style.color = "red";
+  document.getElementById("btnSiguiente").style.display = "none";
+}
+
+
+  actualizarVista();
+}
+
+function actualizarVista() {
+  const html = document.getElementById("htmlInput").value;
+  const css = document.getElementById("cssInput").value;
+  const iframe = document.getElementById("vista-previa");
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open();
+  doc.write(`
+    <html>
+      <head><style>${css}</style></head>
+      <body>${html}</body>
+    </html>
+  `);
+  doc.close();
+}
+
+function nivelAnterior() {
+  if (nivelActual > 0) {
+    nivelActual--;
+    cargarNivel();
+  }
+}
+
+function siguienteNivel() {
+  if (nivelActual === 9) { 
+    document.querySelector('.zona-juego').style.display = 'none';
+    document.getElementById("explicacion").style.display = 'none';
+    document.getElementById("pantalla-css").style.display = 'block';
+  } else if (nivelActual < niveles.length - 1) {
+    nivelActual++;
+    cargarNivel();
+  } else {
+    document.querySelector('.zona-juego').style.display = 'none';
+    document.getElementById("fin-juego").style.display = 'block';
+    document.getElementById("explicacion").style.display = 'none';
+    mostrarRegistradosFinal();
+  }
+}
+
+function empezarCSS() {
+  document.getElementById("pantalla-css").style.display = "none";
+  document.querySelector('.zona-juego').style.display = 'flex';
+  document.getElementById("explicacion").style.display = 'flex';
+  nivelActual = 10;
+  cargarNivel();
+}
+
+// ===== NIVELES =====
+const niveles = [
+  // --- HTML ---
+  { tipo:'html',
+    instruccion:"Nivel 1: Crea un título con <h1>",
+    explicacion:"Debes abrir con <h1> y cerrar con </h1>. Dentro va tu texto.",
+    validar: (html, css) => /^<h1>[\s\S]*<\/h1>$/i.test(html.trim())
+  },
+  { tipo:'html', instruccion:"Nivel 2: Escribe un párrafo con <p>", explicacion:"Abre con <p> y cierra con </p>.", validar: (h) => /^<p>[\s\S]*<\/p>$/i.test(h.trim()) },
+    { 
+  tipo:'html', 
+  instruccion:"Nivel 3: Inserta un salto de línea <br>", 
+  explicacion:"La etiqueta <br> no lleva cierre. Puedes escribir <br> o <br />", 
+  validar: (h) => /<br\s*\/?>/i.test(h.trim()) 
+}
+,
+  { tipo:'html', instruccion:"Nivel 4: Texto en negrita con <b>", explicacion:"<b>Texto</b> con apertura y cierre.", validar: (h) => /^<b>[\s\S]*<\/b>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 5: Texto en cursiva con <i>", explicacion:"<i>Texto</i> con apertura y cierre.", validar: (h) => /^<i>[\s\S]*<\/i>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 6: Subtítulo con <h2>", explicacion:"Abre con <h2> y cierra con </h2>.", validar: (h) => /^<h2>[\s\S]*<\/h2>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 7: Encabezado más pequeño <h3>", explicacion:"Abre con <h3> y cierra con </h3>.", validar: (h) => /^<h3>[\s\S]*<\/h3>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 8: Lista ordenada <ol>", explicacion:"Debes abrir con <ol> y cerrar con </ol>.", validar: (h) => /^<ol>[\s\S]*<\/ol>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 9: Lista desordenada <ul>", explicacion:"Debes abrir con <ul> y cerrar con </ul>.", validar: (h) => /^<ul>[\s\S]*<\/ul>$/i.test(h.trim()) },
+  { tipo:'html', instruccion:"Nivel 10: Elemento de lista <li>", explicacion:"Se usa dentro de <ul> o <ol>. Ej: <li>Item</li>", validar: (h) => /^<li>[\s\S]*<\/li>$/i.test(h.trim()) },
+
+  // --- CSS ---
+  { tipo:'css',
+    instruccion:"Nivel 11: Cuadrado negro 100x100",
+    explicacion:"HTML: <div class=\"caja1\"></div>\nCSS: .caja1{ width:100px; height:100px; background:black; }",
+    htmlRequerido:{tag:'div', clase:'caja1'},
+    propsCSS:[/width\s*:\s*100px/i, /height\s*:\s*100px/i, /(background|background-color)\s*:\s*black/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 12: Círculo azul 100x100",
+    explicacion:"HTML: <div class=\"circulo\"></div>\nCSS: .circulo{ width:100px; height:100px; background:blue; border-radius:50%; }",
+    htmlRequerido:{tag:'div', clase:'circulo'},
+    propsCSS:[/width\s*:\s*100px/i, /height\s*:\s*100px/i, /background\s*:\s*blue/i, /border-radius\s*:\s*50%/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 13: Rectángulo rojo 200x100",
+    explicacion:"HTML: <div class=\"rectangulo\"></div>\nCSS: .rectangulo{ width:200px; height:100px; background:red; }",
+    htmlRequerido:{tag:'div', clase:'rectangulo'},
+    propsCSS:[/width\s*:\s*200px/i, /height\s*:\s*100px/i, /background\s*:\s*red/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 14: Borde negro de 5px sólido",
+    explicacion:"HTML: <div class=\"marco\">Hola</div>\nCSS: .marco{ border:5px solid black; }",
+    htmlRequerido:{tag:'div', clase:'marco'},
+    propsCSS:[/border\s*:\s*5px\s+solid\s+black/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 15: Márgenes y relleno",
+    explicacion:"HTML: <div class=\"espaciado\">Texto</div>\nCSS: .espaciado{ margin:20px; padding:10px; }",
+    htmlRequerido:{tag:'div', clase:'espaciado'},
+    propsCSS:[/margin\s*:\s*20px/i, /padding\s*:\s*10px/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 16: Texto verde",
+    explicacion:"HTML: <p class=\"verde\">Hola</p>\nCSS: .verde{ color:green; }",
+    htmlRequerido:{tag:'p', clase:'verde'},
+    propsCSS:[/color\s*:\s*green/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 17: Fondo amarillo",
+    explicacion:"HTML: <div class=\"amarillo\">Fondo</div>\nCSS: .amarillo{ background-color:yellow; }",
+    htmlRequerido:{tag:'div', clase:'amarillo'},
+    propsCSS:[/background(-color)?\s*:\s*yellow/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 18: Texto grande",
+    explicacion:"HTML: <p class=\"grande\">Texto</p>\nCSS: .grande{ font-size:30px; }",
+    htmlRequerido:{tag:'p', clase:'grande'},
+    propsCSS:[/font-size\s*:\s*30px/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 19: Texto en cursiva",
+    explicacion:"HTML: <p class=\"cursiva\">Texto</p>\nCSS: .cursiva{ font-style:italic; }",
+    htmlRequerido:{tag:'p', clase:'cursiva'},
+    propsCSS:[/font-style\s*:\s*italic/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 20: Texto en negrita",
+    explicacion:"HTML: <p class=\"negrita\">Texto</p>\nCSS: .negrita{ font-weight:bold; }",
+    htmlRequerido:{tag:'p', clase:'negrita'},
+    propsCSS:[/font-weight\s*:\s*bold/i]
+  }
+];
+
+window.onload = cargarRegistrados;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* ------------------------------
+   VARIABLES GLOBALES
+--------------------------------*/
+:root {
+  --color-azul: #0077ff;
+  --color-negro: #0b0b0b;
+  --color-gris: #1a1a1a;
+  --color-gris-claro: #2b2b2b;
+  --color-blanco: #ffffff;
+  --fuente-texto: 'Poppins', sans-serif;
+  --fuente-titulos: 'Playfair Display', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  transition: background 0.3s, color 0.3s;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ------------------------------
+   HEADER
+--------------------------------*/
+.header {
+  border-bottom: 2px solid var(--color-azul);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.contenedor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo span {
+  font-family: var(--fuente-titulos);
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-azul);
+}
+
+.nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* Botón toggle */
+.toggle-btn {
+  background: var(--color-azul);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.toggle-btn:hover {
+  background: #0056b3;
+}
+
+/* ------------------------------
+   SIDEBAR
+--------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: #111;
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 2000;
+}
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sidebar-header h2 {
+  color: var(--color-azul);
+}
+.cerrar-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sidebar-opciones h3 {
+  margin: 15px 0 8px;
+  color: var(--color-azul);
+}
+.opcion-grupo button {
+  margin: 4px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: var(--color-azul);
+  color: #fff;
+  cursor: pointer;
+}
+.opcion-grupo button:hover {
+  background: #0056b3;
+}
+
+/* ------------------------------
+   HERO + SLIDE
+--------------------------------*/
+.jlmn {
+  margin-top: 60px;
+  position: relative;
+}
+.splide {
+  width: 100%;
+  height: 400px;
+}
+.splide__slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.jlmn-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 8px;
+}
+.jlmn-texto h1 {
+  font-size: 32px;
+  color: var(--color-azul);
+  margin-bottom: 10px;
+}
+.jlmn-texto p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.btn {
+  background: var(--color-azul);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #0056b3;
+}
+
+/* ------------------------------
+   SECCIONES GENERALES
+--------------------------------*/
+.seccion {
+  padding: 60px 5%;
+}
+.seccion h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-family: var(--fuente-titulos);
+  color: var(--color-azul);
+}
+.seccion.gris {
+  background: var(--color-gris);
+}
+
+.objetivos li {
+  background: var(--color-gris-claro);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+/* ------------------------------
+   VIDEOS (TRÁILERS)
+--------------------------------*/
+.videos {
+  padding: 60px 5%;
+}
+.videos h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.contenedor-videos {
+  display: flex;
+  gap: 20px;
+}
+.menu-videos {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-videos .opcion {
+  background: var(--color-gris);
+  color: #fff;
+  border: 2px solid transparent;
+  padding: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+.menu-videos .opcion:hover {
+  border-color: var(--color-azul);
+}
+.menu-videos .activo {
+  border: 2px solid var(--color-azul);
+}
+.video-principal {
+  width: 80%;
+  background: #000;
+  padding: 10px;
+  border: 2px solid var(--color-gris-claro);
+}
+.video-principal video {
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------------------
+   PDF
+--------------------------------*/
+.pdf {
+  width: 100%;
+  height: 500px;
+  border: 2px solid var(--color-azul);
+  border-radius: 6px;
+}
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid var(--color-azul);
+}
+
+/* ------------------------------
+   TEMAS
+--------------------------------*/
+
+/* Tema oscuro */
+body.tema-oscuro {
+  background: var(--color-negro);
+  color: var(--color-blanco);
+}
+body.tema-oscuro .header {
+  background: var(--color-gris);
+}
+body.tema-oscuro .nav a {
+  color: var(--color-blanco);
+}
+body.tema-oscuro .nav a:hover {
+  color: var(--color-azul);
+}
+body.tema-oscuro footer {
+  background: var(--color-gris);
+  color: var(--color-blanco);
+}
+
+/* Tema claro */
+body.tema-claro {
+  background: #ffffff;
+  color: #000000;
+}
+body.tema-claro .header {
+  background: #f0f0f0;
+}
+body.tema-claro .nav a {
+  color: #000000;
+}
+body.tema-claro .nav a:hover {
+  color: var(--color-azul);
+}
+body.tema-claro footer {
+  background: #f0f0f0;
+  color: #000000;
+}
+body.tema-claro .sidebar {
+  background: #f9f9f9;
+}
+body.tema-claro .sidebar h2,
+body.tema-claro .sidebar h3 {
+  color: var(--color-azul);
+}
+body.tema-claro .cerrar-btn {
+  color: #000;
+}
+body.tema-claro .menu-videos .opcion {
+  background: #e0e0e0;
+  color: #000;
+}
+body.tema-claro .menu-videos .opcion:hover {
+  border-color: var(--color-azul);
+}
+.logo img {
+  width: 40px;
+  filter: drop-shadow(0 0 6px var(--color-azul))
+          drop-shadow(0 0 12px var(--color-azul));
+          animation: flotar 1.2s ease-in-out infinite;
+}
+@keyframes flotar {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
