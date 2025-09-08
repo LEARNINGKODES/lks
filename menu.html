@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Principal - LK HTML & CSS</title>
+  <link rel="stylesheet" href="menu.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="menu-header">
+    <div class="logo"><img src="./img/Logotipo.png" alt="Mi logo" width="60"></div>
+    <h1>Bienvenido a <span>LK HTML & CSS</span></h1>
+    <p class="desc">Aprende lo básico, juega y ponlo en práctica</p>
+  </header>
+  <div class="floating-text" id="floatingText"></div>
+
+
+  <main class="menu-sections">
+
+    <!-- Página principal -->
+    <section>
+      <h2 class="section-title">Página Principal</h2>
+      <div class="menu-grid">
+        <a href="index.html" class="menu-card">
+          <h3>Explora el curso</h3>
+          <p>Accede a todas las lecciones y comienza desde cero.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Juegos -->
+    <section>
+      <h2 class="section-title">Juegos</h2>
+      <div class="menu-grid">
+        <a href="SUBMENÚ/LK_CODES.html" class="menu-card">
+          <h3>Aprende HTML y CSS simple</h3>
+          <p>Pon en práctica lo aprendido con tus propios proyectos.</p>
+        </a>
+        <a href="SUBMENÚ/aprende2.html" class="menu-card">
+          <h3>Códigos básicos</h3>
+          <p>HTML y CSS listos para copiar y practicar.</p>
+        </a>
+        <a href="juego.html" class="menu-card">
+          <h3>LK_DEV</h3>
+          <p>Mini juego interactivo para poner  aprueba lo que ya sabes</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Multimedia -->
+    <section>
+      <h2 class="section-title">Multimedia</h2>
+      <div class="menu-grid">
+        <a href="https://youtube.com" target="_blank" class="menu-card">
+          <h3>YouTube</h3>
+          <p>Tutoriales en video para reforzar lo aprendido.</p>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="menu-card">
+          <h3>Facebook</h3>
+          <p>Encuentra contenido y publicaciones educativas.</p>
+        </a>
+        <a href="https://x.com" target="_blank" class="menu-card">
+          <h3>X (Twitter)</h3>
+          <p>Tips rápidos y novedades sobre programación.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+  
+  <script>
+    const logo = document.querySelector('.menu-header .logo img');
+    const floatingText = document.getElementById('floatingText');
+    
+    let posX = 50;
+    let posY = 50;
+    let dirX = 3;
+    let dirY = 2.5;
+    const logoWidth = logo.offsetWidth;
+    const logoHeight = logo.offsetHeight;
+    
+    let waiting = true;
+    let tiredTime = 4000;
+    let mouseX = posX;
+    let mouseY = posY;
+    
+    // Mensajes aleatorios
+    const beeMessages = [
+      "¡Sígueme!",
+      "Bzzzz...",
+      "¡Estoy volando!",
+      "Cuidado, vuelo rápido!",
+      "¡Aquí estoy!",
+      "¡Zumbando por aquí!",
+      "¡Mira cómo vuelo!",
+      "Bzz, bzz, bzz!",
+      "¡No me pierdas de vista!",
+      "¡Al ataque del polen!",
+      "¡Vuelo supersónico!",
+      "¡Bee-bee bee!",
+      "¡Rápido como el viento!",
+      "¡Explorando la página!",
+      "¡Me muevo y tú me sigues!",
+      "¡Vuelo elegante!",
+      "¡Sigue mis alas!",
+      "¡A toda velocidad!",
+      "¡Zumbando contenta!",
+      "¡Aquí va la abeja viajera!"
+    ];
+    
+    // Detectar abandono de página (pérdida de foco)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        showFloatingText("¡Hey! ¿Por qué me abandonas?");
+      } else {
+        showFloatingText("¡Qué bueno que volviste!");
+      }
+    });
+    
+    // Movimiento aleatorio tipo zigzag con tamaño y rotación
+    function moveLogo() {
+      const maxX = window.innerWidth - logoWidth - 10;
+      const maxY = window.innerHeight - logoHeight - 10;
+    
+      if(!waiting) {
+        posX += dirX * (Math.random() * 1.5 + 0.5);
+        posY += dirY * (Math.random() * 1.5 + 0.5);
+    
+        if(posX <= 0 || posX >= maxX) dirX = -dirX;
+        if(posY <= 0 || posY >= maxY) dirY = -dirY;
+    
+        const scale = 0.8 + Math.random() * 0.4;
+        const rotateZ = Math.random() * 10 - 5;
+        const flipX = (mouseX < posX) ? -1 : 1;
+    
+        logo.style.transform = `rotateZ(${rotateZ}deg) scale(${scale}) scaleX(${flipX})`;
+        logo.style.left = posX + 'px';
+        logo.style.top = posY + 'px';
+      }
+    
+      requestAnimationFrame(moveLogo);
+    }
+    
+    // Suave seguimiento al cursor
+    document.addEventListener('mousemove', (e) => {
+      if(Math.random() < 0.15) {
+        mouseX = e.pageX + 10;
+        mouseY = e.pageY + 10;
+      }
+    });
+    
+    function followCursor() {
+      posX += (mouseX - posX) * 0.05;
+      posY += (mouseY - posY) * 0.05;
+      logo.style.left = posX + 'px';
+      logo.style.top = posY + 'px';
+      requestAnimationFrame(followCursor);
+    }
+    
+    // Texto flotante tipo burbuja
+    function showFloatingText(text) {
+      floatingText.innerText = text;
+      floatingText.style.left = (posX + 50) + 'px';
+      floatingText.style.top = (posY - 30) + 'px';
+      floatingText.style.opacity = 1;
+      floatingText.style.transform = 'translateY(-40px)';
+    
+      setTimeout(() => {
+        floatingText.style.opacity = 0;
+        floatingText.style.transform = 'translateY(-60px)';
+      }, 2000);
+    }
+    
+    // Se cansa de esperar y empieza a volar
+    setTimeout(() => {
+      waiting = false;
+      showFloatingText("¡Ya me cansé de esperar!");
+    }, tiredTime);
+    
+    // Textos aleatorios mientras vuela
+    setInterval(() => {
+      if (!waiting && Math.random() < 0.3) {
+        const msg = beeMessages[Math.floor(Math.random() * beeMessages.length)];
+        showFloatingText(msg);
+      }
+    }, 4000);
+    
+    // Iniciar animaciones
+    moveLogo();
+    followCursor();
+    </script>
+    <footer class="menu-footer">
+    <p>Creado por JLMN & FSDM</p>
+  </footer>
+</body>
+</html>

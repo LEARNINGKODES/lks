@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Kodes</title>
+    <link rel="icon" href="../img/Logotipo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="lk_codes.css">
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+            <img src="..img/Logotipo.png" alt="Logo">
+            <button onclick="window.location.href='../index.html'"><h1>LEARNING KODES</h1></button>
+            <span class="badge">v1</span>
+        </div>
+
+        <div class="side-section">Navegación</div>
+        <nav class="side-nav">
+            <a href="#estructura">Estructura HTML</a>
+            <a href="#texto">Texto y Listas</a>
+            <a href="#multimedia">Imágenes & Multimedia</a>
+            <a href="#formularios">Formularios</a>
+            <a href="#css-colores">CSS Colores</a>
+            <a href="#css-cajas">CSS Cajas</a>
+            <a href="#css-anim">CSS Animaciones</a>
+            <a href="#complementos">Complementos</a>
+        </nav>
+
+        <div class="side-section">Buscar</div>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Buscar...">
+            <select id="seccion">
+                <option value="all">Todas las secciones</option>
+                <option value="estructura">Estructura HTML</option>
+                <option value="texto">Texto y Listas</option>
+                <option value="multimedia">Multimedia</option>
+                <option value="formularios">Formularios</option>
+                <option value="css-colores">CSS Colores</option>
+                <option value="css-cajas">CSS Cajas</option>
+                <option value="css-anim">CSS Animaciones</option>
+                <option value="complementos">Complementos</option>
+            </select>
+
+            <div class="chips" role="tablist" aria-label="Filtrar por tipo de snippet">
+                <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+                <button type="button" class="chip" data-filter="html" role="tab">HTML</button>
+                <button type="button" class="chip" data-filter="css" role="tab">CSS</button>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <section id="estructura">
+            <h2>Estructura HTML <span class="badgeSec"></span></h2>
+            <div class="grid">
+                
+                <div class="snippet html figure-corner" data-tags="estructura,doctype,html,base">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;!DOCTYPE html&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Activa el modo estándar del navegador.</p>
+                    <pre><code id="code-1">&lt;!DOCTYPE html&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<!DOCTYPE html><html><head><title>Ok</title></head><body>Hola</body></html>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Colócalo siempre al inicio del documento.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,html,lang,idioma">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;html lang='es'&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Elemento raíz del documento con idioma.</p>
+                    <pre><code id="code-2">&lt;html lang='es'&gt;...&lt;/html&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<html lang='es'><head><meta charset='UTF-8'></head><body>Contenido</body></html>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Usar lang correcto mejora accesibilidad y SEO.</div>
+                </div>
+                
+                <div class="snippet html figure-corner" data-tags="estructura,head,metadatos">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;head&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Metadatos, enlaces a CSS/JS, título.</p>
+                    <pre><code id="code-3">&lt;head&gt; ... &lt;/head&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<head><meta charset='UTF-8'><title>Título</title></head>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No pongas contenido visible aquí.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,meta,charset,utf-8">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;meta charset&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Define la codificación de caracteres.</p>
+                    <pre><code id="code-4">&lt;meta charset='UTF-8'&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<meta charset='UTF-8'>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Evita caracteres rotos (tildes/ñ).</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,meta,viewport,responsive">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;meta viewport&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Hace el sitio responsive en móviles.</p>
+                    <pre><code id="code-5">&lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<meta name='viewport' content='width=device-width, initial-scale=1.0'>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Indispensable en sitios modernos.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,title,titulo">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;title&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Título de la pestaña/navegador.</p>
+                    <pre><code id="code-6">&lt;title&gt;Mi sitio&lt;/title&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<title>Mi sitio</title>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Usa títulos descriptivos por página.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,link,stylesheet,css">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;link rel='stylesheet'&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Vincula estilos CSS externos.</p>
+                    <pre><code id="code-7">&lt;link rel='stylesheet' href='estilos.css'&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<link rel='stylesheet' href='estilos.css'>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Mantén el CSS separado del HTML.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,script,defer,js">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;script defer&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Carga JS sin bloquear el render.</p>
+                    <pre><code id="code-8">&lt;script src='app.js' defer&gt;&lt;/script&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<script defer>console.log('listo');</script>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Prefiere defer sobre inline cuando sea posible.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,body,contenido">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;body&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Contenido visible del documento.</p>
+                    <pre><code id="code-9">&lt;body&gt; ... &lt;/body&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<body><h1>Hola</h1></body>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Un solo &lt;body&gt; por documento.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,header,encabezado">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;header&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Encabezado de página o sección.</p>
+                    <pre><code id="code-10">&lt;header&gt; ... &lt;/header&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<header><h1>Logo</h1></header>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Úsalo para zonas superiores y navegación.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,nav,navegacion">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;nav&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Bloque de navegación.</p>
+                    <pre><code id="code-11">&lt;nav&gt; ... &lt;/nav&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<nav><a href='#'>Inicio</a></nav>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Incluye enlaces internos y/o externos.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,main,principal">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;main&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Contenido principal único.</p>
+                    <pre><code id="code-12">&lt;main&gt; ... &lt;/main&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<main><article>Post</article></main>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Debe existir solo uno por página.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,section,seccion">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;section&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Agrupa contenido por tema.</p>
+                    <pre><code id="code-13">&lt;section&gt; ... &lt;/section&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<section><h2>Tema</h2><p>Texto</p></section>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Siempre incluye encabezado dentro.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,article,articulo,post">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;article&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Contenido independiente.</p>
+                    <pre><code id="code-14">&lt;article&gt; ... &lt;/article&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<article><h2>Noticia</h2><p>Texto</p></article>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Ideal para posts/noticias/cards.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,aside,sidebar">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;aside&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Contenido complementario.</p>
+                    <pre><code id="code-15">&lt;aside&gt; ... &lt;/aside&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<aside>Publicidad o enlaces</aside>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No abuses, úsalo para info secundaria.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,footer,pie">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;footer&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Pie de página.</p>
+                    <pre><code id="code-16">&lt;footer&gt; ... &lt;/footer&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<footer>© 2025</footer>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Pon créditos, enlaces y contacto.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,figure,imagen,figura">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;figure&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Figura con imagen/ilustración.</p>
+                    <pre><code id="code-17">&lt;figure&gt; ... &lt;/figure&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<figure><svg width='80' height='80'><rect width='80' height='80' fill='tomato'/></svg></figure>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Combínala con &lt;figcaption&gt; para pie.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,figcaption,figura">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;figcaption&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Pie de figura.</p>
+                    <pre><code id="code-18">&lt;figcaption&gt;Texto&lt;/figcaption&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<figure><svg width='60' height='60'><circle cx='30' cy='30' r='28' fill='gold'/></svg><figcaption>Moneda</figcaption></figure>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Describir la figura para accesibilidad.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,template,js">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;template&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Plantillas de HTML clonables con JS.</p>
+                    <pre><code id="code-19">&lt;template id='card'&gt;...&lt;/template&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<template id='t'><li>item</li></template>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No se renderiza hasta clonar con JS.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,details,summary,desplegable">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;details&gt;/&lt;summary&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Bloques desplegables accesibles.</p>
+                    <pre><code id="code-20">&lt;details&gt;&lt;summary&gt;Ver más&lt;/summary&gt;...&lt;/details&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<details open><summary>FAQ</summary><p>Respuesta</p></details>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Excelente para preguntas frecuentes.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,time,fecha">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;time&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Marca temporal semántica.</p>
+                    <pre><code id="code-21">&lt;time datetime='2025-08-31'&gt;31/08/2025&lt;/time&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<time datetime='2025-08-31'>31/08/2025</time>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Útil para máquinas/SEO.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,address,contacto">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;address&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Datos de contacto.</p>
+                    <pre><code id="code-22">&lt;address&gt;...&lt;/address&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<address>Av. 123</address>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No lo uses para direcciones genéricas.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,abbr,abreviatura">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;abbr&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Abreviaturas con significado.</p>
+                    <pre><code id="code-23">&lt;abbr title='Cascading Style Sheets'&gt;CSS&lt;/abbr&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<p><abbr title='HyperText Markup Language'>HTML</abbr></p>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Incluye siempre el atributo title.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,comment,comentario">
+                    <div class="figure-band"></div>
+                    <h3>HTML · Comentarios &lt;!-- --&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Notas en el código que no se muestran.</p>
+                    <pre><code id="code-24">&lt;!-- Comentario --&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc=""></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Úsalos con moderación; no dejes credenciales.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="estructura,base,plantilla">
+                    <div class="figure-band"></div>
+                    <h3>HTML · Estructura mínima <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Plantilla mínima de página.</p>
+                    <pre><code id="code-25">&lt;!DOCTYPE html&gt;\n&lt;html lang='es'&gt;\n&lt;head&gt;\n&lt;meta charset='UTF-8'&gt;\n&lt;meta name='viewport' content='width=device-width, initial-scale=1.0'&gt;\n&lt;title&gt;Título&lt;/title&gt;\n&lt;link rel='stylesheet' href='estilos.css'&gt;\n&lt;/head&gt;\n&lt;body&gt;Contenido&lt;/body&gt;\n&lt;/html&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Base</title></head><body>Hola</body></html>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Punto de partida recomendado.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="texto">
+            <h2>Texto y Listas <span class="badgeSec"></span></h2>
+            <div class="grid">
+                
+                <div class="snippet html figure-corner" data-tags="texto,h,heading,titulos">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;h1&gt;…&lt;h6&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Encabezados jerárquicos.</p>
+                    <pre><code id="code-26">&lt;h1&gt;Título&lt;/h1&gt; … &lt;h6&gt;Sub&lt;/h6&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<h1>Principal</h1><h2>Secundario</h2>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Un solo h1 por documento es buena práctica.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,p,parrafo">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;p&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Párrafos de texto.</p>
+                    <pre><code id="code-27">&lt;p&gt;Texto&lt;/p&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<p>Un párrafo claro.</p>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Evita saltos de línea múltiples, usa CSS para espacios.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,br,salto">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;br&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Salto de línea simple.</p>
+                    <pre><code id="code-28">Línea&lt;br&gt;Otra línea</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="Línea 1<br>Línea 2"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No lo uses para separar bloques grandes.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,strong,em,enfasis">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;strong&gt;/&lt;em&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Énfasis fuerte y énfasis.</p>
+                    <pre><code id="code-29">&lt;strong&gt;fuerte&lt;/strong&gt; &lt;em&gt;énfasis&lt;/em&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<p><strong>Importante</strong> y <em>relevante</em></p>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No abuses; usa semántica correctamente.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,mark,resaltar">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;mark&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Resaltar texto.</p>
+                    <pre><code id="code-30">&lt;mark&gt;clave&lt;/mark&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<p>Dato <mark>clave</mark></p>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Útil para resultados de búsqueda.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,small,pequeno">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;small&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Notas/legales pequeñas.</p>
+                    <pre><code id="code-31">&lt;small&gt;© 2025&lt;/small&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<p>Texto <small>nota</small></p>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No reduzcas demasiado el contraste.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,lista,ul,ol,li">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;ul&gt;/&lt;ol&gt;/&lt;li&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Listas no ordenadas y ordenadas.</p>
+                    <pre><code id="code-32">&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<ol><li>Uno</li><li>Dos</li></ol>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Usa listas para contenido estructurado.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,lista,dl,dt,dd,definiciones">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;dl&gt;/&lt;dt&gt;/&lt;dd&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Listas de definiciones.</p>
+                    <pre><code id="code-33">&lt;dl&gt;&lt;dt&gt;Término&lt;/dt&gt;&lt;dd&gt;Def.&lt;/dd&gt;&lt;/dl&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<dl><dt>API</dt><dd>Interfaz</dd></dl>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Perfecto para glosarios.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,blockquote,cite,cita">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;blockquote&gt;/&lt;cite&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Cita en bloque y referencia.</p>
+                    <pre><code id="code-34">&lt;blockquote cite='...'&gt;...&lt;/blockquote&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<blockquote>Frase</blockquote><cite>Autor</cite>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> No uses solo comillas; aprovecha semántica.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,code,pre,codigo,preformateado">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;code&gt;/&lt;pre&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Código preformateado.</p>
+                    <pre><code id="code-35">&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<pre><code>console.log('ok')</code></pre>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Escapa caracteres HTML dentro de &lt;code&gt;.</div>
+                </div>
+
+                <div class="snippet html figure-corner" data-tags="texto,span,contenedor">
+                    <div class="figure-band"></div>
+                    <h3>HTML · &lt;span&gt; <button type="button" class="copy-btn" aria-label="Copiar código"><i class="fas fa-copy"></i></button></h3>
+                    <p class="descripcion">Contenedor en línea sin semántica.</p>
+                    <pre><code id="code-36">&lt;span&gt;texto&lt;/span&gt;</code></pre>
+                    <h4>Ejemplo en acción:</h4>
+                    <iframe class="ej" srcdoc="<span style='color:red;'>texto</span>"></iframe>
+                    <div class="notas"><strong>Notas y buenas prácticas:</strong> Utiliza &lt;span&gt; solo para aplicar estilos con CSS.</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="formularios">
+            <h2>Formularios <span class="badgeSec"></span></h2>
+            <div class="grid">
+                </div>
+        </section>
+        
+        <section id="css-colores">
+            <h2>CSS Colores <span class="badgeSec"></span></h2>
+            <div class="grid">
+                </div>
+        </section>
+        
+        <section id="css-cajas">
+            <h2>CSS Cajas <span class="badgeSec"></span></h2>
+            <div class="grid">
+                </div>
+        </section>
+        
+        <section id="css-animaciones">
+            <h2>CSS Animaciones <span class="badgeSec"></span></h2>
+            <div class="grid">
+                </div>
+        </section>
+        
+        <section id="complementos">
+            <h2>Complementos <span class="badgeSec"></span></h2>
+            <div class="grid">
+                </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

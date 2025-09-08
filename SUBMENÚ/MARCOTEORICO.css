@@ -1,0 +1,130 @@
+:root {
+  --color-azul: #0077ff;
+  --color-negro: #0b0b0b;
+  --color-gris: #1a1a1a;
+  --color-gris-claro: #2b2b2b;
+  --color-blanco: #ffffff;
+  --fuente-texto: 'Poppins', sans-serif;
+  --fuente-titulos: 'Playfair Display', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background: var(--color-gris);
+  color: var(--color-blanco);
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background: var(--color-gris-claro);
+  border-bottom: 3px solid var(--color-azul);
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--color-azul);
+    object-fit: cover;
+    display: block;
+    animation: bee-move 2s ease-in-out infinite;
+  }
+  
+  /* Animación de movimiento tipo "vuelo de abeja" */
+  @keyframes bee-move {
+    0%   { transform: translateY(0) rotate(0deg); }
+    25%  { transform: translateY(-6px) rotate(-2deg); }
+    50%  { transform: translateY(0) rotate(0deg); }
+    75%  { transform: translateY(-4px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  
+
+.header h1 a {
+  font-family: var(--fuente-titulos);
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: var(--color-azul);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: var(--color-azul);
+  border-radius: 16px;
+  margin: 30px auto;
+  max-width: 900px;
+}
+
+.hero h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.hero .descripcion {
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--color-blanco);
+  color: var(--color-negro);
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #e6e6e6;
+}
+
+/* Contenido */
+.contenido {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: var(--color-gris-claro);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  color: var(--color-azul);
+  margin-bottom: 12px;
+}
+
+.card p {
+  text-align: justify;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mini Curso HTML & CSS — Para Niños</title>
+  <link rel="stylesheet" href="aprende2.css">
+  <link rel="icon" href="../img/Logotipo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button id="toggleSidebar" class="toggle-btn" aria-label="Abrir menú">☰ Menú</button>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+        <div class="logo-large">
+            <img src="../img/Logotipo.png" alt="Mi logo" width="60">
+          </div>
+          
+      <h1><button onclick="window.location.href='../index.html'"></button>HTML & CSS</h1>
+    </div>
+
+    <ul class="menu">
+      <li>
+        <a href="#l1" class="submenu-toggle">HTML</a>
+        <ul class="submenu">
+          <li><a href="#l1">1 · Títulos</a></li>
+          <li><a href="#l2">2 · Párrafos</a></li>
+          <li><a href="#l3">3 · Imágenes</a></li>
+          <li><a href="#l4">4 · Enlaces</a></li>
+          <li><a href="#l5">5 · Listas</a></li>
+          <li><a href="#l6">6 · Tablas</a></li>
+          <li><a href="#l7">7 · Figuras</a></li>
+          <li><a href="#l8">8 · Formularios</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#l9" class="submenu-toggle">CSS</a>
+        <ul class="submenu">
+          <li><a href="#l9">9 · Colores y CSS</a></li>
+          <li><a href="#l10">10 · Fondos y bordes</a></li>
+          <li><a href="#l11">11 · Contenedores (div)</a></li>
+          <li><a href="#l12">12 · Estructura de página</a></li>
+          <li><a href="#l15">15 · Etiquetas semánticas</a></li>
+          <li><a href="#l16">16 · Estilos internos y externos</a></li>
+          <li><a href="#l17">17 · Clases e IDs</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#l13" class="submenu-toggle">Extras</a>
+        <ul class="submenu">
+          <li><a href="#l13">13 · Audio</a></li>
+          <li><a href="#l14">14 · Video</a></li>
+          <li><a href="#l18">18 · Flexbox básico</a></li>
+          <li><a href="#l19">19 · Grid básico</a></li>
+          <li><a href="#l20">20 · Proyecto final</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="sidebar-foot">
+      Navega con el menú o usa los botones <strong>Anterior / Siguiente</strong>.
+    </div>
+  </nav>
+
+  <main>
+    <header class="main-header">
+      <div class="logo">
+        <img src="../img/Logotipo.png" alt="Mi logo" width="60">
+      </div>
+      <div>
+        <h2>HTML & CSS</h2>
+        <p class="course-desc">JLMN & FSDM</p>
+      </div>
+    </header>
+
+    <section class="lesson" id="l1" data-lesson="0">
+      <h3>1 · Títulos</h3>
+      <p class="lead">Las etiquetas &lt;h1&gt;...&lt;h6&gt; muestran títulos. &lt;h1&gt; es el más grande.</p>
+      <pre class="codebox" data-code>&lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;
+&lt;h2&gt;Soy un subtítulo importante&lt;/h2&gt;
+&lt;h4&gt;Y este es más pequeño&lt;/h4&gt;</pre>
+      <div class="controls">
+        <button class="btn run">Ver resultado</button>
+        <button class="btn outline copy">Copiar código</button>
+      </div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson">
+        <button class="btn outline prev">Anterior</button>
+        <button class="btn next">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="lesson" id="l2" data-lesson="1">
+      <h3>2 · Párrafos</h3>
+      <p class="lead">Para texto normal usamos &lt;p&gt;.</p>
+      <pre class="codebox" data-code>&lt;p&gt;Este es un párrafo que explica algo sencillo. Puedes escribir muchas palabras dentro.&lt;/p&gt;</pre>
+      <div class="controls">
+        <button class="btn run">Ver resultado</button>
+        <button class="btn outline copy">Copiar código</button>
+      </div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l3" data-lesson="2">
+      <h3>3 · Imágenes</h3>
+      <p class="lead">Etiqueta &lt;img src="URL" alt="texto"&gt;. Aquí usamos una imagen de ejemplo.</p>
+      <pre class="codebox" data-code>&lt;img src="https://cdn.pixabay.com/photo/2013/07/12/17/59/robot-152210_640.png" alt="robot caricatura" width="260"&gt;</pre>
+      <div class="controls">
+        <button class="btn run">Ver resultado</button>
+        <button class="btn outline copy">Copiar código</button>
+      </div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson">
+        <button class="btn outline prev">Anterior</button>
+        <button class="btn next">Siguiente</button>
+      </div>
+    </section>
+
+    <section class="lesson" id="l4" data-lesson="3">
+      <h3>4 · Enlaces</h3>
+      <p class="lead">Crea enlaces con &lt;a href="URL"&gt;Texto&lt;/a&gt;.</p>
+      <pre class="codebox" data-code>&lt;a href="https://es.wikipedia.org" target="_blank"&gt;Ir a Wikipedia (abre en nueva pestaña)&lt;/a&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l5" data-lesson="4">
+      <h3>5 · Listas</h3>
+      <p class="lead">Listas desordenadas (&lt;ul&gt;) y ordenadas (&lt;ol&gt;).</p>
+      <pre class="codebox" data-code>&lt;ul&gt;
+  &lt;li&gt;Manzana&lt;/li&gt;
+  &lt;li&gt;Pera&lt;/li&gt;
+  &lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Primero&lt;/li&gt;
+  &lt;li&gt;Segundo&lt;/li&gt;
+&lt;/ol&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l6" data-lesson="5">
+      <h3>6 · Tablas</h3>
+      <p class="lead">Tablas con &lt;table&gt;, filas &lt;tr&gt; y celdas &lt;td&gt; / &lt;th&gt;.</p>
+      <pre class="codebox" data-code>&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt;Nombre&lt;/th&gt;&lt;th&gt;Edad&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Ana&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Luis&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l7" data-lesson="6">
+      <h3>7 · Figuras (&lt;figure&gt;)</h3>
+      <p class="lead">Usa &lt;figure&gt; con &lt;figcaption&gt; para imagen + pie de foto.</p>
+      <pre class="codebox" data-code>&lt;figure&gt;
+  &lt;img src="https://cdn.pixabay.com/photo/2016/03/31/19/57/cat-1295448_1280.png" alt="gato caricatura" width="220"&gt;
+  &lt;figcaption&gt;Gato feliz&lt;/figcaption&gt;
+&lt;/figure&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l8" data-lesson="7">
+      <h3>8 · Formularios básicos</h3>
+      <p class="lead">Pide nombre y correo con &lt;form&gt; &lt;input&gt; y un botón.</p>
+      <pre class="codebox" data-code>&lt;form&gt;
+  &lt;label&gt;Nombre: &lt;input type="text" name="nombre" /&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;Correo: &lt;input type="email" name="email" /&gt;&lt;/label&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l9" data-lesson="8">
+      <h3>9 · Colores y estilos (CSS)</h3>
+      <p class="lead">Cambia color, tamaño y fondo con CSS (style o archivo externo).</p>
+      <pre class="codebox" data-code>&lt;h2 style="color:#0b69ff;"&gt;Hola Azul&lt;/h2&gt;
+&lt;p style="background:#001f3f;color:#fff;padding:8px;border-radius:6px;"&gt;Texto con fondo azul oscuro&lt;/p&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l10" data-lesson="9">
+      <h3>10 · Fondos y bordes</h3>
+      <p class="lead">Decoración con <code>background</code>, <code>border</code> y <code>border-radius</code>.</p>
+      <pre class="codebox" data-code>&lt;div style="background:#e6f0ff;border:3px solid #0b69ff;padding:12px;border-radius:10px;"&gt;
+  Caja azul con borde redondeado
+&lt;/div&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l11" data-lesson="10">
+      <h3>11 · Contenedores (div)</h3>
+      <p class="lead">Agrupa elementos con &lt;div&gt; y aplica estilos para ordenar la página.</p>
+      <pre class="codebox" data-code>&lt;div style="display:flex;gap:8px;"&gt;
+  &lt;div style="background:#001f3f;color:#fff;padding:8px;border-radius:6px;"&gt;Caja 1&lt;/div&gt;
+  &lt;div style="background:#0b69ff;color:#fff;padding:8px;border-radius:6px;"&gt;Caja 2&lt;/div&gt;
+&lt;/div&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l12" data-lesson="11">
+      <h3>12 · Estructura (header, nav, footer)</h3>
+      <p class="lead">Bloques comunes para una web completa: encabezado, navegación y pie.</p>
+      <pre class="codebox" data-code>&lt;header&gt;&lt;h1&gt;Mi sitio&lt;/h1&gt;&lt;/header&gt;
+&lt;nav&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/nav&gt;
+&lt;footer&gt;Pie de página&lt;/footer&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l13" data-lesson="12">
+      <h3>13 · Audio</h3>
+      <p class="lead">Reproduce sonido con &lt;audio&gt; (controles visibles).</p>
+      <pre class="codebox" data-code>&lt;audio controls&gt;
+  &lt;source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"&gt;
+  Tu navegador no soporta audio.
+&lt;/audio&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l14" data-lesson="13">
+      <h3>14 · Video</h3>
+      <p class="lead">Usa &lt;video controls&gt; para mostrar vídeos locales o enlaces MP4.</p>
+      <pre class="codebox" data-code>&lt;video controls width="320"&gt;
+  &lt;source src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_stereo.mp4" type="video/mp4"&gt;
+  Tu navegador no soporta vídeo.
+&lt;/video&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l15" data-lesson="14">
+      <h3>15 · Etiquetas semánticas</h3>
+      <p class="lead">Usa &lt;article&gt;, &lt;section&gt;, &lt;aside&gt; para que la página sea más clara.</p>
+      <pre class="codebox" data-code>&lt;article&gt;
+  &lt;h3&gt;Noticia&lt;/h3&gt;
+  &lt;p&gt;Texto de noticia...&lt;/p&gt;
+&lt;/article&gt;
+&lt;aside&gt;Esto es una nota lateral.&lt;/aside&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l16" data-lesson="15">
+      <h3>16 · Estilos internos y externos</h3>
+      <p class="lead">Puedes usar estilos en la etiqueta (inline), en &lt;style&gt; o en archivo externo (recomendado).</p>
+      <pre class="codebox" data-code>&lt;style&gt;
+  h1{color:#0b69ff;}
+&lt;/style&gt;
+&lt;h1&gt;Título con estilo interno&lt;/h1&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l17" data-lesson="16">
+      <h3>17 · Clases e IDs</h3>
+      <p class="lead">Clases (.) repiten en varios elementos. IDs (#) son únicos por página.</p>
+      <pre class="codebox" data-code>&lt;div class="caja"&gt;Caja con clase&lt;/div&gt;
+&lt;div id="principal"&gt;Único&lt;/div&gt;
+&lt;style&gt;.caja{background:#0b69ff;color:#fff;padding:8px;border-radius:6px;}#principal{border:2px solid #001f3f;padding:8px;}&lt;/style&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l18" data-lesson="17">
+      <h3>18 · Flexbox básico</h3>
+      <p class="lead">Organiza elementos en fila o columna con flexbox.</p>
+      <pre class="codebox" data-code>&lt;div style="display:flex;gap:10px;"&gt;
+  &lt;div style="background:#0b69ff;color:#fff;padding:10px;border-radius:6px;"&gt;1&lt;/div&gt;
+  &lt;div style="background:#001f3f;color:#fff;padding:10px;border-radius:6px;"&gt;2&lt;/div&gt;
+  &lt;div style="background:#66a3ff;color:#000;padding:10px;border-radius:6px;""&gt;3&lt;/div&gt;
+&lt;/div&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l19" data-lesson="18">
+      <h3>19 · Grid básico</h3>
+      <p class="lead">Crea rejillas con <code>display:grid</code> y define filas/columnas.</p>
+      <pre class="codebox" data-code>&lt;div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;"&gt;
+  &lt;div style="background:#0b69ff;padding:12px;color:#fff;border-radius:6px;"&gt;A&lt;/div&gt;
+  &lt;div style="background:#001f3f;padding:12px;color:#fff;border-radius:6px;"&gt;B&lt;/div&gt;
+  &lt;div style="background:#66a3ff;padding:12px;color:#000;border-radius:6px;"&gt;C&lt;/div&gt;
+&lt;/div&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+
+    <section class="lesson" id="l20" data-lesson="19">
+      <h3>20 · Proyecto final</h3>
+      <p class="lead">Combina lo aprendido: título, imagen caricatura, texto y botón con estilo.</p>
+      <pre class="codebox" data-code>&lt;section style="padding:12px;background:#eaf4ff;border-radius:10px;"&gt;
+  &lt;h2 style="color:#0b69ff;"&gt;Mi mini página&lt;/h2&gt;
+  &lt;img src="https://cdn.pixabay.com/photo/2013/07/12/17/59/robot-152210_640.png" alt="robot caricatura" width="160"&gt;
+  &lt;p&gt;Esta es mi web de práctica. Aquí puedo poner un texto bonito.&lt;/p&gt;
+  &lt;button style="background:#0b69ff;color:#fff;padding:8px 12px;border-radius:8px;border:0;"&gt;Clic aquí&lt;/button&gt;
+&lt;/section&gt;</pre>
+      <div class="controls"><button class="btn run">Ver resultado</button><button class="btn outline copy">Copiar código</button></div>
+      <div class="preview"><iframe class="preview-frame"></iframe></div>
+      <div class="nav-lesson"><button class="btn outline prev">Anterior</button><button class="btn next">Siguiente</button></div>
+    </section>
+     <!--footer-->
+    <footer class="page-footer">
+      <small>
+        Aquí en <strong>LK HTML & CSS</strong> aprenderás lo básico de estos lenguajes de programación.  
+        ¡No te pierdas nada de nuestra página, sigue practicando y diviértete creando tus propios proyectos!  
+        <br>Con cariño, <strong>JLMC & FSDM</strong>.
+      </small>
+    </footer>
+    
+  </main>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const lessons = Array.from(document.querySelectorAll('section.lesson'));
+    const menuLinks = Array.from(document.querySelectorAll('.sidebar .menu a:not(.submenu-toggle)'));
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+    // Toggle sidebar (móvil)
+    toggleSidebar.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+
+    // Submenús desplegables
+    submenuToggles.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const submenu = btn.nextElementSibling;
+        submenu.classList.toggle('open');
+      });
+    });
+
+    // Smooth scroll en enlaces
+    menuLinks.forEach((a, i) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+          sidebar.classList.remove('open');
+        }
+      });
+    });
+
+    // Ejecutar código dentro de los iframes
+    function runCode(pre, iframe) {
+      const code = pre.textContent;
+      iframe.srcdoc = `
+        <!doctype html><html><head><meta charset="utf-8">
+        <style>body{font-family:Arial;padding:12px;}</style></head><body>
+        ${code}
+        </body></html>`;
+    }
+
+    lessons.forEach(lesson => {
+      const pre = lesson.querySelector('pre.codebox[data-code]');
+      const runBtn = lesson.querySelector('.run');
+      const copyBtn = lesson.querySelector('.copy');
+      const iframe = lesson.querySelector('.preview-frame');
+
+      if (pre && iframe) runCode(pre, iframe);
+
+      if (runBtn) runBtn.addEventListener('click', () => runCode(pre, iframe));
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(pre.textContent);
+            copyBtn.textContent = '¡Copiado!';
+            setTimeout(() => copyBtn.textContent = 'Copiar código', 900);
+          } catch {
+            alert('No se pudo copiar. Usa Ctrl+C.');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

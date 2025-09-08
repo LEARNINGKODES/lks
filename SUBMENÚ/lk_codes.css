@@ -1,0 +1,275 @@
+/* ==============================
+   Variables y configuración base
+============================== */
+:root {
+  --color-azul: #0077ff;
+  --color-negro: #0b0b0b;
+  --color-gris: #1a1a1a;
+  --color-gris-claro: #2b2b2b;
+  --color-blanco: #ffffff;
+
+  --fuente-texto: 'Poppins', sans-serif;
+  --fuente-titulos: 'Playfair Display', serif;
+}
+
+/* ==============================
+   Reset y estilos generales
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background: var(--color-negro);
+  color: var(--color-blanco);
+  display: flex;
+  height: 100vh;
+}
+
+/* ==============================
+   Layout principal
+============================== */
+.app {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #0b0b0b 0%, #1a1a1a 100%);
+}
+
+/* ==============================
+   Sidebar moderno
+============================== */
+.sidebar {
+  width: 300px;
+  background: linear-gradient(180deg, #1a1a1a, #2b2b2b);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid var(--color-azul);
+  box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+  overflow-y: auto;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.brand img {
+  max-width: 90px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--color-azul);
+  padding: 3px;
+  background: var(--color-gris-claro);
+}
+
+.brand h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  color: var(--color-azul);
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  background: var(--color-azul);
+  color: var(--color-blanco);
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* ==============================
+   Navegación elegante
+============================== */
+.side-section {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-azul);
+  margin: 1rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.side-nav a {
+  display: block;
+  padding: 0.6rem 1rem;
+  margin: 0.3rem 0;
+  border-radius: 8px;
+  color: var(--color-blanco);
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+
+.side-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--color-azul);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+
+.side-nav a:hover::before {
+  transform: scaleY(1);
+}
+
+.side-nav a:hover {
+  color: var(--color-azul);
+  background: rgba(0, 119, 255, 0.1);
+}
+
+/* ==============================
+   Buscador y filtros
+============================== */
+.controls input,
+.controls select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-gris-claro);
+  color: var(--color-blanco);
+}
+
+.controls input:focus,
+.controls select:focus {
+  outline: 2px solid var(--color-azul);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  background: var(--color-gris-claro);
+  color: var(--color-blanco);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.chip.active,
+.chip:hover {
+  background: var(--color-azul);
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Main content
+============================== */
+main h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-azul);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.badgeSec {
+  background: var(--color-azul);
+  color: var(--color-blanco);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ==============================
+   Snippets con estilo moderno
+============================== */
+.snippet {
+  background: linear-gradient(145deg, #1a1a1a, #2b2b2b);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+  transition: all 0.3s;
+}
+
+.snippet:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.7);
+}
+
+.snippet h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-blanco);
+}
+
+.snippet .copy-btn {
+  background: none;
+  border: none;
+  color: var(--color-azul);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.snippet .copy-btn:hover {
+  color: #00c0ff;
+}
+
+.snippet p.descripcion {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: #dcdcdc;
+}
+
+.snippet pre {
+  background: var(--color-gris-claro);
+  border-radius: 8px;
+  padding: 0.8rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-blanco);
+}
+
+.snippet iframe.ej {
+  width: 100%;
+  height: 90px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-blanco);
+  margin-bottom: 0.8rem;
+}
+
+.snippet .notas {
+  font-size: 0.8rem;
+  background: rgba(0,119,255,0.1);
+  color: var(--color-blanco);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
