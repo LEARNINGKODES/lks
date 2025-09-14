@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Kodes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="icon" href="img/Logotipo.png" type="image/png">
+  <!-- SplideJS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+</head>
+<body class="tema-oscuro">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="contenedor-header">
+      <div class="logo">
+        <img src="img/Logotipo.png" alt="Logo LK">
+        <span id="titulo-logo">LEARNING KODES</span>
+      </div>
+      <nav class="nav">
+        <a href="teoria-del-color.html" data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</a>
+        <a href="SUBMENÚ/DOFA.html" data-es="DOFA" data-en="SWOT">DOFA</a>
+        <a href="SUBMENÚ/MARCOTEORICO.html" data-es="Marco Teórico" data-en="Theoretical Framework">Marco Teórico</a>
+        <a href="cronograma.html" data-es="Cronograma" data-en="Schedule">Cronograma</a>
+        <a href="menu.html" data-es="Menú" data-en="Menu">Menu</a>
+        <a href=""></a>
+      </nav>
+      <!-- Botón Sidebar -->
+      <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>⚙️ <span data-es="Ajustes" data-en="Settings">Ajustes</span></h2>
+      <button class="cerrar-btn" onclick="toggleSidebar()">✖</button>
+    </div>
+    <div class="sidebar-opciones">
+      <h3 data-es="Tema" data-en="Theme">Tema</h3>
+      <div class="opcion-grupo">
+        <button onclick="cambiarTema('claro')">Claro</button>
+        <button onclick="cambiarTema('oscuro')">Oscuro</button>
+      </div>
+      <h3 data-es="Idioma" data-en="Language">Idioma</h3>
+      <div class="opcion-grupo">
+        <button onclick="cambiarIdioma('es')">Español</button>
+        <button onclick="cambiarIdioma('en')">English</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SLIDE -->
+  <section class="jlmn">
+    <div class="splide" aria-label="Galería de imágenes">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide"><img src="./img/SLIDE11.jpg" alt="Slide 1"></li>
+          <li class="splide__slide"><img src="./img/evidencia1 (1).png" alt="Evidencia 1"></li>
+          <li class="splide__slide"><img src="./img/SLIDE14.jpg" alt="Slide 2"></li>
+          <li class="splide__slide"><img src="./img/evidencia1 (2).png" alt="Evidencia 2"></li>
+          <li class="splide__slide"><img src="./img/SLIDE12.jpg" alt="Slide 3"></li>
+          <li class="splide__slide"><img src="./img/evidencia1 (3).png" alt="Evidencia 3"></li>
+          <li class="splide__slide"><img src="./img/SLIDE13.jpg" alt="Slide 4"></li>
+          <li class="splide__slide"><img src="./img/evidencia1 (4).png" alt="Evidencia 4"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jlmn-texto">
+      <h1 data-es="¡Bienvenidos a Learning Kodes!" data-en="Welcome to Learning Kodes!">¡Bienvenidos a Learning Kodes!</h1>
+      <p data-es="Aprende programación de manera divertida e interactiva con juegos, actividades y recursos."
+         data-en="Learn programming in a fun and interactive way with games, activities, and resources.">
+         Aprende programación de manera divertida e interactiva con juegos, actividades y recursos.
+      </p>
+      <a href="SUBMENÚ/LK_CODES.html" class="btn" data-es="Comenzar" data-en="Start">Comenzar</a>
+    </div>
+  </section>
+  <div class="galeria">
+    <!-- Botones -->
+    <div class="botones">
+      <button class="img-btn" onclick="mostrarimagen(1)">mision</button>
+      <button class="img-btn" onclick="mostrarimagen(2)">vision</button>
+      <button class="img-btn" onclick="mostrarimagen(3)">general obj</button>
+      <button class="img-btn" onclick="mostrarimagen(4)">spesific obj</button>
+    </div>
+  
+    <!-- Contenedor de imágenes -->
+    <div class="imagenes">
+      <img id="img1" src="./img/1.png" alt="imagen 1" style="display: none; width:600px;">
+      <img id="img2" src="./img/2.png" alt="imagen 2" style="display: none; width:600px;">
+      <img id="img3" src="./img/3.png" alt="imagen 3" style="display: none; width:600px;">
+      <img id="img4" src="./img/4.png" alt="imagen 4" style="display: none; width:600px;">
+    </div>
+  </div>
+  
+  <script>
+    function mostrarimagen(num) {
+      // Oculta todas las imágenes
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById("img" + i).style.display = "none";
+      }
+      // Muestra la imagen seleccionada
+      document.getElementById("img" + num).style.display = "block";
+    }
+  </script>
+  <!--objetivo-->
+  <section id="secciones" class="seccion">
+    <div class="contenedor">
+      <h2 data-es="¿Qué buscamos?" data-en="Our Goals">¿Qué buscamos?</h2>
+      <ul class="objetivos">
+        <li data-es="Comprender las bases de la programación." data-en="Understand the basics of programming.">Comprender las bases de la programación.</li>
+        <li data-es="Usar la tecnología con fines educativos." data-en="Use technology for educational purposes.">Usar la tecnología con fines educativos.</li>
+        <li data-es="Convertir el aprendizaje en una experiencia divertida." data-en="Turn learning into a fun experience.">Convertir el aprendizaje en una experiencia divertida.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="trailers" class="videos">
+    <h2 data-es="Videos Learning Kodes" data-en="Learning Kodes Videos">Videos Learning Kodes</h2>
+    <div class="contenedor-videos">
+      <aside class="menu-videos">
+        <button class="opcion activo" onclick="cambiarVideo('video1', this)">SKETCH</button>
+        <button class="opcion" onclick="cambiarVideo('video2', this)">JLMN</button>
+        <button class="opcion" onclick="cambiarVideo('video3', this)">FSDM</button>
+        <button class="opcion" onclick="cambiarVideo('video4', this)">VIDEOS</button>
+      </aside>
+      <div class="video-principal">
+        <video id="video1" src="./videosis/Learningkodes.mp4" controls autoplay></video>
+        <video id="video2" src="./videosis/SI.mp4" controls style="display:none;"></video>
+        <video id="video3" src="./videosis/NO.mp4" controls style="display:none;"></video>
+        <video id="video4" src="./videosis/proyectos.mp4" controls style="display:none;"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUAL -->
+  <section id="manual" class="seccion gris">
+    <div class="contenedor">
+      <h2 data-es="Manual de HTML y CSS" data-en="HTML & CSS Manual">Manual de HTML y CSS</h2>
+      <embed src="MANUAL-HTML-Y-CSS.pdf" class="pdf" type="application/pdf">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-es="Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103"
+       data-en="Project created by <strong>Jhon Luis Mejía Niño</strong> and <strong>Fabián Steven Devia Moreno</strong> – Class 1103">
+       Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103
+    </p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+  <script>
+    // SLIDER
+    new Splide('.splide', {
+      type: 'loop',
+      perPage: 1,
+      autoplay: true,
+      interval: 3000,
+      pauseOnHover: true,
+    }).mount();
+
+    // SIDEBAR
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    // TEMA
+    function cambiarTema(modo) {
+      document.body.classList.remove("tema-claro", "tema-oscuro");
+      document.body.classList.add(modo === "claro" ? "tema-claro" : "tema-oscuro");
+    }
+
+    // IDIOMA (mantiene etiquetas HTML)
+    function cambiarIdioma(lang) {
+      document.querySelectorAll("[data-es]").forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${lang}`);
+      });
+    }
+
+    // CAMBIO DE VIDEOS
+    function cambiarVideo(id, btn) {
+      document.querySelectorAll('.video-principal video').forEach(v => {
+        v.style.display = 'none'; v.pause();
+      });
+      document.getElementById(id).style.display = 'block';
+      document.getElementById(id).play();
+
+      document.querySelectorAll('.menu-videos .opcion').forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+    }
+    document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    document.title = "Regresa :'(";
+  } else {
+    document.title = "Gracias por volver ^⁠_⁠^";
+  }
+ });
+let nivelActual = 0;
+  </script>
+
+</body>
+</html>
