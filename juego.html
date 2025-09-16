@@ -2,194 +2,147 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Learning Kodes</title>
-  <link rel="stylesheet" href="juego.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego HTML & CSS</title>
   <style>
-    #explicacion-texto {
-      user-select: none;
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #0a1a0f;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
-    iframe {
-      width:100%;
-      height:150px;
-      border:1px solid #ccc;
-      margin-top:10px;
+
+    header {
+      background: #111;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #0f0;
     }
+
+    #pantallaInicio {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #pantallaInicio h1 { margin-bottom: 10px; }
+
+    #pantallaJuego {
+      display: none;
+      width: 100%;
+      max-width: 900px;
+      padding: 16px;
+    }
+
+    .explicacion {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+      padding: 8px;
+      font-family: monospace;
+      resize: vertical;
+    }
+
+    #resultado {
+      background: #fff;
+      color: #000;
+      padding: 10px;
+      margin-top: 12px;
+      min-height: 100px;
+      border-radius: 6px;
+    }
+
+    #mensaje {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .mensaje-correcto { color: #4caf50; }
+    .mensaje-error { color: #f44336; }
+
+    .controles {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+    }
+    .controles button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #0f0;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .controles button:hover { background: #6f6; }
   </style>
 </head>
 <body>
+  <header>🐝 Juego HTML & CSS</header>
 
-<!-- === BARRA SUPERIOR === -->
-<header class="barra-superior" style="display:none;" id="headerJuego">
-  <h1><a class="INICIO" href="index.html">LEARNING KODES</a></h1>
-  <p>Aprende HTML y CSS paso a paso con nuestra abeja guía</p>
-</header>
-
-<!-- === EXPLICACIÓN Y JUEGO === -->
-<div id="explicacion" class="explicacion" style="display:none;">
-  <img src="./img/Logotipo.png" class="abeja" alt="abeja guia" />
-  <p id="explicacion-texto"></p>
-</div>
-
-<div id="pantalla-css" style="display:none; text-align:center; padding:20px;">
-  <h2>¡Felicidades!</h2>
-  <p>Has completado los 10 niveles de <b>HTML</b>.  
-  Ahora ya sabes lo básico de cómo crear la estructura de una página web con etiquetas.</p>
-  <p>Pero una página no solo necesita estructura, también necesita <b>estilo</b>: colores, tamaños, formas, márgenes...  
-  Para eso existe <b>CSS</b>, que trabaja junto al HTML para darle diseño.</p>
-  <button onclick="empezarCSS()">Empezar CSS</button>
-</div>
-
-<div class="zona-juego" style="display:none;">
-  <div class="escenario" id="escenario">
-    <div><h1>Hola</h1></div>
-    <div><p>Esto es un párrafo</p></div>
-    <div><br>NIKOLL Y ANGIE MIS DULCE PRINCESAS</div>
-    <div><b>LEARNINGKODES</b></div>
-    <div><h3>©JLMN & FSDM STUDIOS</h3></div>
+  <!-- Pantalla de inicio -->
+  <div id="pantallaInicio">
+    <h1>Bienvenido</h1>
+    <p>Aprende HTML y CSS paso a paso</p>
+    <button onclick="iniciarJuego()">Comenzar</button>
   </div>
 
-  <div class="panel-control">
-    <label for="htmlInput">Escribe el <b>HTML</b>:</label>
-    <textarea id="htmlInput" rows="4" placeholder="Ej: &lt;h1&gt;Hola&lt;/h1&gt;" oninput="actualizarVista()"></textarea>
-  
-    <div id="panelCSS" style="display:none; margin-top:10px;">
-      <label for="cssInput">Escribe el <b>CSS</b>:</label>
-      <textarea id="cssInput" rows="4" placeholder="Ej: .caja1 { width:100px; height:100px; background:black; }" oninput="actualizarVista()"></textarea>
+  <!-- Pantalla del juego -->
+  <div id="pantallaJuego">
+    <div class="explicacion">
+      <p id="explicacion-texto"></p>
     </div>
-  
-    <!-- Agrupamos botones en un mismo contenedor -->
-    <div class="botones-acciones">
-      <button onclick="verificarCodigo()">Verificar</button>
-  
-      <div class="controles" style="display:none;" id="controlesJuego">
-        <button onclick="nivelAnterior()">Anterior</button>
-        <button onclick="siguienteNivel()" id="btnSiguiente" style="display:none;">Siguiente</button>
-      </div>
+
+    <label>Escribe tu HTML aquí:</label>
+    <textarea id="htmlInput" placeholder="<h1>Hola</h1>"></textarea>
+
+    <div id="panelCSS" style="display:none;">
+      <label>Escribe tu CSS aquí:</label>
+      <textarea id="cssInput" placeholder="h1 { color:red; }"></textarea>
     </div>
-  
+
+    <button onclick="verificarCodigo()">Verificar</button>
     <p id="mensaje"></p>
-  
-    <h3>Vista previa:</h3>
-    <iframe id="vista-previa"></iframe>
+
+    <div id="resultado"></div>
+
+    <div class="controles" id="controlesJuego" style="display:none;">
+      <button onclick="nivelAnterior()">Anterior</button>
+      <button onclick="siguienteNivel()" id="btnSiguiente" style="display:none;">Siguiente</button>
+    </div>
   </div>
-</div>
 
-<!-- === FINAL === -->
-<div class="controles" style="display:none;" id="fin-juego">
-  <p>¡Felicidades! Has terminado todos los niveles</p>
-  <button onclick="location.href='index.html'">Volver al inicio</button>
-</div>
+  <script>
+    // Mensaje en pestaña
+    document.addEventListener("visibilitychange", () => {
+      document.title = document.hidden ? "Regresa :'(" : "Gracias por volver ^⁠_^";
+    });
 
-<script>
- document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    document.title = "Regresa :'(";
-  } else {
-    document.title = "Gracias por volver ^⁠_⁠^";
-  }
- });
+    let nivelActual = 0;
 
-let nivelActual = 0;
-
-// ===== FUNCIONES DE JUEGO =====
-function cargarNivel() {
-  const nivel = niveles[nivelActual];
-  document.getElementById("explicacion-texto").innerText = nivel.instruccion + "\n" + nivel.explicacion;
-
-  // Reset inputs
-  document.getElementById("htmlInput").value = "";
-  document.getElementById("cssInput").value = "";
-
-  // Mostrar/ocultar panel CSS
-  if (nivel.tipo === "css") {
-    document.getElementById("panelCSS").style.display = "block";
-  } else {
-    document.getElementById("panelCSS").style.display = "none";
-  }
-
-  // Ocultar botón siguiente hasta que valide
-  document.getElementById("btnSiguiente").style.display = "none";
-  document.getElementById("mensaje").textContent = "";
-  actualizarVista();
-}
-
-function verificarCodigo() {
-  const html = document.getElementById("htmlInput").value;
-  const css = document.getElementById("cssInput").value;
-  const nivel = niveles[nivelActual];
-  let correcto = false;
-
-  if (nivel.tipo === "html") {
-    correcto = nivel.validar(html, css);
-  } else {
-    const tagRegex = new RegExp(`<${nivel.htmlRequerido.tag}\\s+class=["']${nivel.htmlRequerido.clase}["'].*>.*</${nivel.htmlRequerido.tag}>`, "i");
-    correcto = tagRegex.test(html);
-    if (correcto) {
-      correcto = nivel.propsCSS.every(r => r.test(css));
-    }
-  }
-
-  const mensaje = document.getElementById("mensaje");
-
-  if (correcto) {
-    mensaje.innerText = "¡Muy bien!";
-    mensaje.className = "mensaje-correcto";
-    document.getElementById("btnSiguiente").style.display = "inline-block";
-  } else {
-    mensaje.innerText = "Intenta otra vez.";
-    mensaje.className = "mensaje-error";
-    document.getElementById("btnSiguiente").style.display = "none";
-  }
-
-  actualizarVista();
-}
-
-function actualizarVista() {
-  const html = document.getElementById("htmlInput").value;
-  const css = document.getElementById("cssInput").value;
-  const iframe = document.getElementById("vista-previa");
-  const doc = iframe.contentDocument || iframe.contentWindow.document;
-  doc.open();
-  doc.write(`
-    <html>
-      <head><style>${css}</style></head>
-      <body>${html}</body>
-    </html>
-  `);
-  doc.close();
-}
-
-function nivelAnterior() {
-  if (nivelActual > 0) {
-    nivelActual--;
-    cargarNivel();
-  }
-}
-
-function siguienteNivel() {
-  if (nivelActual === 14) { 
-    document.querySelector('.zona-juego').style.display = 'none';
-    document.getElementById("explicacion").style.display = 'none';
-    document.getElementById("pantalla-css").style.display = 'block';
-  } else if (nivelActual < niveles.length - 1) {
-    nivelActual++;
-    cargarNivel();
-  } else {
-    document.querySelector('.zona-juego').style.display = 'none';
-    document.getElementById("fin-juego").style.display = 'block';
-    document.getElementById("explicacion").style.display = 'none';
-  }
-}
-
-function empezarCSS() {
-  document.getElementById("pantalla-css").style.display = "none";
-  document.querySelector('.zona-juego').style.display = 'flex';
-  document.getElementById("explicacion").style.display = 'flex';
-  nivelActual = 15;
-  cargarNivel();
-}
-
-const niveles = [
+    // Definición de niveles (ejemplo básico, agrega más según quieras)
+    const niveles = [
   { tipo:'html',
     instruccion:"Nivel 1: Crea un título con <h1>",
     explicacion:"El encabezado principal se hace con <h1>. Ejemplo: <h1>Hola Mundo</h1>.",
@@ -388,6 +341,87 @@ const niveles = [
     propsCSS:[/animation\s*:\s*colorear\s*2s\s*infinite/i,/@keyframes\s*colorear/i]
   }
 ];
-</script>
+
+    function iniciarJuego() {
+      document.getElementById("pantallaInicio").style.display = "none";
+      document.getElementById("pantallaJuego").style.display = "block";
+      cargarNivel();
+    }
+
+    function cargarNivel() {
+      const nivel = niveles[nivelActual];
+      document.getElementById("explicacion-texto").innerText = nivel.instruccion + "\n" + nivel.explicacion;
+
+      document.getElementById("htmlInput").value = "";
+      document.getElementById("cssInput").value = "";
+
+      if (nivel.tipo === "css") {
+        document.getElementById("panelCSS").style.display = "block";
+      } else {
+        document.getElementById("panelCSS").style.display = "none";
+      }
+
+      document.getElementById("btnSiguiente").style.display = "none";
+      document.getElementById("controlesJuego").style.display = "block";
+      document.getElementById("mensaje").textContent = "";
+      actualizarVista();
+    }
+
+    function verificarCodigo() {
+      const html = document.getElementById("htmlInput").value;
+      const css = document.getElementById("cssInput").value;
+      const nivel = niveles[nivelActual];
+      let correcto = false;
+
+      if (nivel.tipo === "html") {
+        correcto = nivel.validar(html, css);
+      } else {
+        const tagRegex = new RegExp(`<${nivel.htmlRequerido.tag}\\s+class=["']${nivel.htmlRequerido.clase}["'].*>.*</${nivel.htmlRequerido.tag}>`, "i");
+        correcto = tagRegex.test(html);
+        if (correcto) {
+          correcto = nivel.propsCSS.every(r => r.test(css));
+        }
+      }
+
+      const mensaje = document.getElementById("mensaje");
+      if (correcto) {
+        mensaje.innerText = "✅ ¡Muy bien!";
+        mensaje.className = "mensaje-correcto";
+        document.getElementById("btnSiguiente").style.display = "inline-block";
+      } else {
+        mensaje.innerText = "❌ Intenta otra vez.";
+        mensaje.className = "mensaje-error";
+        document.getElementById("btnSiguiente").style.display = "none";
+      }
+
+      actualizarVista(html, css);
+    }
+
+    function actualizarVista(html="", css="") {
+      const vista = document.getElementById("resultado");
+      vista.innerHTML = html || "";
+      if (css) {
+        const style = document.createElement("style");
+        style.innerText = css;
+        vista.appendChild(style);
+      }
+    }
+
+    function siguienteNivel() {
+      if (nivelActual < niveles.length - 1) {
+        nivelActual++;
+        cargarNivel();
+      } else {
+        alert("🎉 ¡Felicidades! Terminaste todos los niveles.");
+      }
+    }
+
+    function nivelAnterior() {
+      if (nivelActual > 0) {
+        nivelActual--;
+        cargarNivel();
+      }
+    }
+  </script>
 </body>
 </html>
