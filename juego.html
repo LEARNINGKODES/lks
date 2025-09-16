@@ -136,33 +136,7 @@
 let nivelActual = 0;
 
 // ===== REGISTRO =====
-  function registrarJugador() {
-    const nombre = document.getElementById("nombreRegistro").value.trim();
-    if (!nombre) {
-      alert("Escribe un nombre para registrarte");
-      return;
-    }
-
-    // Guardar en Google Sheets (API con Apps Script)
-    fetch("https://script.google.com/macros/s/AKfycbyVvpIIYJMWzcrDkBvmeUu6HesUA_kmTpD2-peZex0HxG8CaISNrb2JZP7o5vzsPIKUqA/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre: nombre, fecha: new Date().toLocaleString() })
-    });
-
-    // Mostrar en lista en la página
-    const lista = document.getElementById("listaRegistrados");
-    const li = document.createElement("li");
-    li.textContent = nombre;
-    lista.appendChild(li);
-
-    // Ocultar registro y mostrar juego
-    document.getElementById("pantalla-registro").style.display = "none";
-    document.getElementById("headerJuego").style.display = "block";
-    document.querySelector(".zona-juego").style.display = "flex";
-  }
-
+  
 
 // ===== LISTA FINAL =====
 function mostrarRegistradosFinal() {
