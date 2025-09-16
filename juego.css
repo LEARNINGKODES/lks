@@ -7,7 +7,7 @@
   --color-gris: #1a1a1a;
   --color-gris-claro: #2b2b2b;
   --color-blanco: #ffffff;
-  --colore-verde: #138604;
+  --color-verde: #138604; /* corregido */
   --color-rojo: #ff0000;
   --fuente-texto: 'Poppins', sans-serif;
   --fuente-titulos: 'Playfair Display', serif;
@@ -30,15 +30,7 @@ body {
 }
 
 /* ===============================
-   REGISTRO
-================================== */
-
-/* ===============================
    BARRA SUPERIOR
-================================== */
-
-/* ===============================
-   BARRA SUPERIOR (limpia y elegante)
 ================================== */
 .barra-superior {
   text-align: center;
@@ -71,7 +63,7 @@ body {
 }
 
 /* ===============================
-   EXPLICACIÓN (Caja clara y organizada)
+   EXPLICACIÓN
 ================================== */
 .explicacion {
   display: flex;
@@ -100,18 +92,15 @@ body {
   font-weight: 400;
 }
 
-/* Animación de la abeja 🐝 (más sutil) */
 @keyframes vueloSuave {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
 
-
 /* ===============================
    ZONA DE JUEGO
 ================================== */
-
 .zona-juego {
   display: flex;
   justify-content: center;
@@ -122,9 +111,9 @@ body {
   margin: auto;
 }
 
-/* ESCENARIO */
+/* Escenario */
 .escenario {
-  flex: 1 1 35%; /* más estrecho */
+  flex: 1 1 35%;
   min-height: 220px;
   background: var(--color-gris);
   border-radius: 20px;
@@ -148,9 +137,9 @@ body {
   font-weight: bold;
 }
 
-/* PANEL DE CONTROL */
+/* Panel de control */
 .panel-control {
-  flex: 1 1 60%; /* más ancho */
+  flex: 1 1 60%;
   min-height: 260px;
   background: var(--color-gris);
   border-radius: 20px;
@@ -187,12 +176,9 @@ body {
   box-shadow: 0 0 12px rgba(0,119,255,0.6);
 }
 
-/* BOTONES DE CONTROL */
 /* ===============================
    BOTONES DE CONTROL
 ================================== */
-
-/* Contenedor para agrupar verificar + navegación */
 .botones-acciones {
   display: flex;
   justify-content: center;
@@ -202,7 +188,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Botones generales */
 .panel-control button,
 .controles button {
   background: var(--color-blanco);
@@ -223,7 +208,6 @@ body {
   color: var(--color-blanco);
   transform: translateY(-2px);
 }
-
 
 /* Vista previa */
 .panel-control h3 {
@@ -294,8 +278,9 @@ iframe {
   color: var(--color-negro);
   transform: scale(1.05);
 }
+
 /* ===============================
-   FINAL
+   FINAL DEL JUEGO
 ================================== */
 #fin-juego {
   text-align: center;
@@ -313,6 +298,7 @@ iframe {
   margin-bottom: 15px;
   color: var(--color-azul);
 }
+
 #mensaje {
   margin-top: 12px;
   font-size: 16px;
@@ -325,7 +311,7 @@ iframe {
   transition: all 0.3s ease;
 }
 
-/* Cuando es correcto */
+/* Mensajes */
 .mensaje-correcto {
   background: rgba(0, 119, 255, 0.15);
   color: var(--color-azul);
@@ -334,7 +320,6 @@ iframe {
   animation: pulsoOk 0.6s ease;
 }
 
-/* Cuando hay error */
 .mensaje-error {
   background: rgba(255, 0, 0, 0.15);
   color: #ff4444;
@@ -343,16 +328,39 @@ iframe {
   animation: sacudida 0.3s ease;
 }
 
-/* Animación de éxito */
 @keyframes pulsoOk {
   0% { transform: scale(0.9); opacity: 0.5; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Animación de error (sacudida) */
 @keyframes sacudida {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
 
+/* ===============================
+   FOOTER
+================================== */
+footer {
+  margin-top: 40px;
+  padding: 18px 25px;
+  text-align: center;
+  background: var(--color-gris-claro);
+  color: var(--color-blanco);
+  font-size: 14px;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+}
+
+footer a {
+  color: var(--color-azul);
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: var(--color-blanco);
+  text-decoration: underline;
+}
