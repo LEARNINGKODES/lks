@@ -35,29 +35,7 @@ body {
 
 /* ===============================
    BARRA SUPERIOR
-================================== */
-.barra-superior {
-  text-align: center;
-  padding: 20px;
-  background: var(--color-azul);
-  color: var(--color-blanco);
-  border-radius: 0 0 40px 40px;
-}
-
-.barra-superior h1 {
-  font-family: var(--fuente-titulos);
-  font-size: 26px;
-}
-
-.barra-superior h1 a {
-  color: var(--color-blanco);
-  text-decoration: none;
-}
-
-.barra-superior p {
-  font-size: 14px;
-  margin-top: 5px;
-}
+================================== */
 
 /* ===============================
    BARRA SUPERIOR (limpia y elegante)
