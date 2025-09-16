@@ -137,18 +137,7 @@ let nivelActual = 0;
 
 // ===== REGISTRO =====
   
-
-// ===== LISTA FINAL =====
-function mostrarRegistradosFinal() {
-  const lista = JSON.parse(localStorage.getItem("jugadores")) || [];
-  const ul = document.getElementById("listaRegistradosFinal");
-  ul.innerHTML = "";
-  lista.forEach(j => {
-    const li = document.createElement("li");
-    li.textContent = `${j.nombre} — ${j.fecha}`;
-    ul.appendChild(li);
-  });
-}
+
 
 // ===== FUNCIONES DE JUEGO =====
 function cargarNivel() {
