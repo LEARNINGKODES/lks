@@ -8,26 +8,6 @@
     #explicacion-texto {
       user-select: none;
     }
-    .registro {
-      padding:20px;
-      text-align:center;
-      border-bottom:2px solid #ccc;
-    }
-    .registro input {
-      padding:5px;
-      margin:5px;
-    }
-    .lista-registrados {
-      margin-top:10px;
-      text-align:center;
-    }
-    .lista-registrados ul {
-      list-style:none;
-      padding:0;
-    }
-    .lista-registrados li {
-      margin:3px 0;
-    }
     iframe {
       width:100%;
       height:150px;
@@ -37,8 +17,6 @@
   </style>
 </head>
 <body>
-<
-
 
 <!-- === BARRA SUPERIOR === -->
 <header class="barra-superior" style="display:none;" id="headerJuego">
@@ -94,15 +72,11 @@
     <h3>Vista previa:</h3>
     <iframe id="vista-previa"></iframe>
   </div>
-  
+</div>
 
 <!-- === FINAL === -->
 <div class="controles" style="display:none;" id="fin-juego">
   <p>¡Felicidades! Has terminado todos los niveles</p>
-  <div class="lista-registrados">
-    <h3>Personas registradas:</h3>
-    <ul id="listaRegistradosFinal"></ul>
-  </div>
   <button onclick="location.href='index.html'">Volver al inicio</button>
 </div>
 
@@ -114,11 +88,8 @@
     document.title = "Gracias por volver ^⁠_⁠^";
   }
  });
-let nivelActual = 0;
 
-// ===== REGISTRO =====
-  
-
+let nivelActual = 0;
 
 // ===== FUNCIONES DE JUEGO =====
 function cargarNivel() {
@@ -160,17 +131,15 @@ function verificarCodigo() {
 
   const mensaje = document.getElementById("mensaje");
 
-if (correcto) {
-  mensaje.innerText = "¡Muy bien!";
-  mensaje.className = "mensaje-correcto";
-  document.getElementById("btnSiguiente").style.display = "inline-block";
-} else {
-  mensaje.innerText = "Intenta otra vez.";
-  mensaje.className = "mensaje-error";
-  document.getElementById("btnSiguiente").style.display = "none";
-}
-
-
+  if (correcto) {
+    mensaje.innerText = "¡Muy bien!";
+    mensaje.className = "mensaje-correcto";
+    document.getElementById("btnSiguiente").style.display = "inline-block";
+  } else {
+    mensaje.innerText = "Intenta otra vez.";
+    mensaje.className = "mensaje-error";
+    document.getElementById("btnSiguiente").style.display = "none";
+  }
 
   actualizarVista();
 }
@@ -209,7 +178,6 @@ function siguienteNivel() {
     document.querySelector('.zona-juego').style.display = 'none';
     document.getElementById("fin-juego").style.display = 'block';
     document.getElementById("explicacion").style.display = 'none';
-    mostrarRegistradosFinal();
   }
 }
 
@@ -220,6 +188,7 @@ function empezarCSS() {
   nivelActual = 15;
   cargarNivel();
 }
+
 const niveles = [
   { tipo:'html',
     instruccion:"Nivel 1: Crea un título con <h1>",
@@ -297,7 +266,7 @@ const niveles = [
     validar: (h) => /<\w+\s+class=["'][^"']+["'][^>]*>[\s\S]*<\/\w+>/i.test(h.trim())
   },
 
-  // --- CSS (15 niveles) ---
+  <!-- CSS Niveles siguen igual -->
   { tipo:'css',
     instruccion:"Nivel 16: Cuadrado negro 100x100",
     explicacion:"HTML: <div class='caja'></div> | CSS: .caja{width:100px;height:100px;background:black;}",
@@ -370,28 +339,55 @@ const niveles = [
     htmlRequerido:{tag:'p', clase:'subrayado'},
     propsCSS:[/text-decoration\s*:\s*underline/i]
   },
-  { tipo:'css',
+{ tipo:'css',
     instruccion:"Nivel 28: Fondo con imagen",
-    explicacion:"HTML: <div class='fondo'></div> | CSS: .fondo{background-image:url('img.png');}",
+    explicacion:"HTML: <div class='fondo'></div> | CSS: .fondo{background-image:url('imagen.jpg');}",
     htmlRequerido:{tag:'div', clase:'fondo'},
-    propsCSS:[/background-image\s*:\s*url/i]
+    propsCSS:[/background-image\s*:\s*url\(['\"][^'\"]+['\"]\)/i]
   },
   { tipo:'css',
-    instruccion:"Nivel 29: Esquinas redondeadas",
-    explicacion:"HTML: <div class='redondeado'></div> | CSS: .redondeado{border-radius:15px;}",
-    htmlRequerido:{tag:'div', clase:'redondeado'},
-    propsCSS:[/border-radius\s*:\s*15px/i]
+    instruccion:"Nivel 29: Ancho al 50%",
+    explicacion:"HTML: <div class='mitad'></div> | CSS: .mitad{width:50%;}",
+    htmlRequerido:{tag:'div', clase:'mitad'},
+    propsCSS:[/width\s*:\s*50%/i]
   },
   { tipo:'css',
-    instruccion:"Nivel 30: Sombra en el texto",
-    explicacion:"HTML: <p class='sombra'>Hola</p> | CSS: .sombra{text-shadow:2px 2px 4px gray;}",
-    htmlRequerido:{tag:'p', clase:'sombra'},
-    propsCSS:[/text-shadow\s*:\s*2px\s+2px\s+4px\s+gray/i]
+    instruccion:"Nivel 30: Texto centrado vertical y horizontalmente",
+    explicacion:"HTML: <div class='centrar'>Hola</div> | CSS: .centrar{display:flex;align-items:center;justify-content:center;}",
+    htmlRequerido:{tag:'div', clase:'centrar'},
+    propsCSS:[/display\s*:\s*flex/i,/align-items\s*:\s*center/i,/justify-content\s*:\s*center/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 31: Fondo degradado",
+    explicacion:"HTML: <div class='degradado'>Texto</div> | CSS: .degradado{background:linear-gradient(red, yellow);}",
+    htmlRequerido:{tag:'div', clase:'degradado'},
+    propsCSS:[/background\s*:\s*linear-gradient\([^)]*\)/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 32: Texto sombreado",
+    explicacion:"HTML: <h2 class='sombra'>Hola</h2> | CSS: .sombra{text-shadow:2px 2px 5px black;}",
+    htmlRequerido:{tag:'h2', clase:'sombra'},
+    propsCSS:[/text-shadow\s*:\s*2px\s+2px\s+5px\s+black/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 33: Caja con sombra",
+    explicacion:"HTML: <div class='cajaSombra'></div> | CSS: .cajaSombra{width:100px;height:100px;background:white;box-shadow:5px 5px 10px gray;}",
+    htmlRequerido:{tag:'div', clase:'cajaSombra'},
+    propsCSS:[/box-shadow\s*:\s*5px\s+5px\s+10px\s+gray/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 34: Bordes redondeados",
+    explicacion:"HTML: <div class='redondo'></div> | CSS: .redondo{width:100px;height:100px;background:green;border-radius:20px;}",
+    htmlRequerido:{tag:'div', clase:'redondo'},
+    propsCSS:[/border-radius\s*:\s*20px/i]
+  },
+  { tipo:'css',
+    instruccion:"Nivel 35: Animación de color",
+    explicacion:"HTML: <div class='animar'></div> | CSS: .animar{width:100px;height:100px;background:red;animation:colorear 2s infinite;} @keyframes colorear{0%{background:red;}100%{background:blue;}}",
+    htmlRequerido:{tag:'div', clase:'animar'},
+    propsCSS:[/animation\s*:\s*colorear\s*2s\s*infinite/i,/@keyframes\s*colorear/i]
   }
 ];
-
-
 </script>
-
 </body>
 </html>
