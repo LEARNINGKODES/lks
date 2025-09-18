@@ -1,21 +1,12 @@
-/* ===============================
-   VARIABLES
-================================== */
 :root {
   --color-azul: #0077ff;
   --color-negro: #0b0b0b;
   --color-gris: #1a1a1a;
   --color-gris-claro: #2b2b2b;
   --color-blanco: #ffffff;
-  --color-verde: #138604; /* corregido */
-  --color-rojo: #ff0000;
   --fuente-texto: 'Poppins', sans-serif;
   --fuente-titulos: 'Playfair Display', serif;
 }
-
-/* ===============================
-   BASE
-================================== */
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +21,184 @@ body {
 }
 
 /* ===============================
+   REGISTRO
+================================== */
+.registro {
+  padding: 38px 32px 32px 32px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-gris) 80%, var(--color-azul) 100%);
+  border-radius: 28px;
+  max-width: 420px;
+  margin: 60px auto 40px auto;
+  box-shadow: 0 8px 32px 0 rgba(0,119,255,0.25), 0 1.5px 0 0 var(--color-azul);
+  border: 3.5px solid var(--color-azul);
+  position: relative;
+  overflow: hidden;
+  animation: registroPop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes registroPop {
+  0% { transform: scale(0.85) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.registro::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, var(--color-azul) 0%, transparent 80%);
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.registro h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 2.2rem;
+  color: var(--color-azul);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0,119,255,0.12);
+  position: relative;
+  z-index: 1;
+}
+
+.registro p {
+  color: var(--color-blanco);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.registro input {
+  padding: 13px 16px;
+  margin: 10px 0 18px 0;
+  border: none;
+  border-radius: 16px;
+  outline: none;
+  width: 80%;
+  font-size: 1.1rem;
+  background: var(--color-gris-claro);
+  color: var(--color-blanco);
+  box-shadow: 0 2px 8px rgba(0,119,255,0.08);
+  transition: box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.registro input:focus {
+  box-shadow: 0 0 0 2px var(--color-azul), 0 2px 8px rgba(0,119,255,0.18);
+}
+
+.registro button {
+  background: linear-gradient(90deg, var(--color-azul) 60%, #00c6ff 100%);
+  color: var(--color-blanco);
+  border: none;
+  padding: 13px 32px;
+  border-radius: 22px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s, box-shadow 0.3s;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px rgba(0,119,255,0.13);
+  position: relative;
+  z-index: 1;
+}
+.registro button:hover {
+  background: linear-gradient(90deg, #00c6ff 0%, var(--color-azul) 100%);
+  color: var(--color-azul);
+  box-shadow: 0 4px 18px rgba(0,119,255,0.22);
+}
+
+.registro .lista-registrados {
+  background: rgba(0,119,255,0.08);
+  border-radius: 14px;
+  padding: 10px 0 6px 0;
+  margin-top: 18px;
+  box-shadow: 0 1px 6px rgba(0,119,255,0.08);
+  position: relative;
+  z-index: 1;
+}
+.registro .lista-registrados h3 {
+  color: var(--color-azul);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.registro .lista-registrados ul {
+  color: var(--color-blanco);
+  font-size: 0.98rem;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Icono decorativo de abejita en el registro */
+.registro::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 54px;
+  height: 54px;
+  background: url('./img/Logotipo.png') no-repeat center/contain;
+  opacity: 0.22;
+  z-index: 0;
+}
+
+.registro input {
+  padding: 10px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  width: 70%;
+  font-size: 14px;
+  background: var(--color-gris-claro);
+  color: var(--color-blanco);
+}
+.registro button {
+  background: var(--color-azul);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+/* ===============================
    BARRA SUPERIOR
+================================== */
+.barra-superior {
+  text-align: center;
+  padding: 20px;
+  background: var(--color-azul);
+  color: var(--color-blanco);
+  border-radius: 0 0 40px 40px;
+}
+
+.barra-superior h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 26px;
+}
+
+.barra-superior h1 a {
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+
+.barra-superior p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ===============================
+   BARRA SUPERIOR (limpia y elegante)
 ================================== */
 .barra-superior {
   text-align: center;
@@ -62,9 +230,7 @@ body {
   font-weight: 300;
 }
 
-/* ===============================
-   EXPLICACIÓN
-================================== */
+/*explicacion*/
 .explicacion {
   display: flex;
   align-items: center;
@@ -92,15 +258,18 @@ body {
   font-weight: 400;
 }
 
+/* Animación de la abeja */
 @keyframes vueloSuave {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
 
+
 /* ===============================
    ZONA DE JUEGO
 ================================== */
+
 .zona-juego {
   display: flex;
   justify-content: center;
@@ -111,9 +280,9 @@ body {
   margin: auto;
 }
 
-/* Escenario */
+/* ESCENARIO */
 .escenario {
-  flex: 1 1 35%;
+  flex: 1 1 35%; /* más estrecho */
   min-height: 220px;
   background: var(--color-gris);
   border-radius: 20px;
@@ -137,9 +306,9 @@ body {
   font-weight: bold;
 }
 
-/* Panel de control */
+/* PANEL DE CONTROL */
 .panel-control {
-  flex: 1 1 60%;
+  flex: 1 1 60%; /* más ancho */
   min-height: 260px;
   background: var(--color-gris);
   border-radius: 20px;
@@ -176,9 +345,8 @@ body {
   box-shadow: 0 0 12px rgba(0,119,255,0.6);
 }
 
-/* ===============================
-   BOTONES DE CONTROL
-================================== */
+/* BOTONES DE CONTROL */
+
 .botones-acciones {
   display: flex;
   justify-content: center;
@@ -187,7 +355,43 @@ body {
   margin: 15px 0;
   flex-wrap: wrap;
 }
+#controlesJuego button:first-child {
+  background: #ffdddd;
+  color: #c0392b;
+  border: 2px solid #c0392b;
+  margin-right: 30px;
+  order: 0;
+  font-weight: bold;
+  min-width: 120px;
+  transition: 0.3s;
+}
+#controlesJuego button:first-child:hover {
+  background: #c0392b;
+  color: #fff;
+}
 
+#controlesJuego button#btnSiguiente {
+  background: #ddffdd;
+  color: #27ae60;
+  border: 2px solid #27ae60;
+  margin-left: 30px;
+  order: 1;
+  font-weight: bold;
+  min-width: 120px;
+  transition: 0.3s;
+}
+#controlesJuego button#btnSiguiente:hover {
+  background: #27ae60;
+  color: #fff;
+}
+#controlesJuego {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+/* Botones generales */
 .panel-control button,
 .controles button {
   background: var(--color-blanco);
@@ -208,6 +412,7 @@ body {
   color: var(--color-blanco);
   transform: translateY(-2px);
 }
+
 
 /* Vista previa */
 .panel-control h3 {
@@ -278,9 +483,8 @@ iframe {
   color: var(--color-negro);
   transform: scale(1.05);
 }
-
 /* ===============================
-   FINAL DEL JUEGO
+   FINAL
 ================================== */
 #fin-juego {
   text-align: center;
@@ -298,7 +502,6 @@ iframe {
   margin-bottom: 15px;
   color: var(--color-azul);
 }
-
 #mensaje {
   margin-top: 12px;
   font-size: 16px;
@@ -311,7 +514,7 @@ iframe {
   transition: all 0.3s ease;
 }
 
-/* Mensajes */
+/* Cuando es correcto */
 .mensaje-correcto {
   background: rgba(0, 119, 255, 0.15);
   color: var(--color-azul);
@@ -320,6 +523,7 @@ iframe {
   animation: pulsoOk 0.6s ease;
 }
 
+/* Cuando hay error */
 .mensaje-error {
   background: rgba(255, 0, 0, 0.15);
   color: #ff4444;
@@ -328,39 +532,16 @@ iframe {
   animation: sacudida 0.3s ease;
 }
 
+/* Animación de éxito */
 @keyframes pulsoOk {
   0% { transform: scale(0.9); opacity: 0.5; }
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* Animación de error (sacudida) */
 @keyframes sacudida {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
 
-/* ===============================
-   FOOTER
-================================== */
-footer {
-  margin-top: 40px;
-  padding: 18px 25px;
-  text-align: center;
-  background: var(--color-gris-claro);
-  color: var(--color-blanco);
-  font-size: 14px;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
-}
-
-footer a {
-  color: var(--color-azul);
-  margin: 0 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer a:hover {
-  color: var(--color-blanco);
-  text-decoration: underline;
-}
