@@ -385,35 +385,40 @@ body.tema-claro .menu-videos .opcion:hover {
 }
 
 /* ------------------------------
-   RESPONSIVE (MÓVIL)
+   INTERFAZ MÓVIL DIFERENTE
 --------------------------------*/
 @media (max-width: 768px) {
+  /* Header simplificado */
   .contenedor-header {
-    padding: 10px 15px;
+    justify-content: space-between;
   }
 
   .nav {
-    display: none; /* ocultamos menú desktop */
+    display: none; /* ocultamos menú escritorio */
   }
 
+  .toggle-btn {
+    display: block; /* mostramos el botón hamburguesa */
+  }
+
+  /* Hero reducido */
   .jlmn-texto {
-    max-width: 90%;
-    padding: 15px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    background: rgba(0,0,0,0.6);
+    margin: 10px auto;
+    border-radius: 10px;
   }
   .jlmn-texto h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .jlmn-texto p {
     font-size: 14px;
   }
 
-  .splide {
-    height: 250px;
-  }
-  .splide__slide img {
-    height: 250px;
-  }
-
+  /* Videos apilados */
   .contenedor-videos {
     flex-direction: column;
   }
@@ -421,32 +426,47 @@ body.tema-claro .menu-videos .opcion:hover {
     width: 100%;
     flex-direction: row;
     overflow-x: auto;
-    padding-bottom: 10px;
+    background: var(--color-gris);
+    padding: 10px;
+    border-radius: 6px;
   }
   .menu-videos .opcion {
     flex: 0 0 auto;
-    min-width: 120px;
+    min-width: 100px;
     text-align: center;
+    font-size: 14px;
   }
   .video-principal {
     width: 100%;
     margin-top: 15px;
   }
 
-  .seccion {
-    padding: 40px 15px;
-  }
-
-  .pdf {
-    height: 350px;
-  }
-
-  .botones {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  /* Botones más táctiles */
   .img-btn {
-    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  /* PDF más pequeño */
+  .pdf {
+    height: 300px;
+  }
+
+  /* Footer compacto */
+  footer {
     font-size: 14px;
+    padding: 15px;
+  }
+}
+
+/* Versión escritorio (>768px) */
+@media (min-width: 769px) {
+  .toggle-btn {
+    display: none; /* botón hamburguesa no aparece */
+  }
+  .nav {
+    display: flex;
   }
 }
