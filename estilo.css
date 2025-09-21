@@ -388,28 +388,29 @@ body.tema-claro .menu-videos .opcion:hover {
    INTERFAZ MÓVIL DIFERENTE
 --------------------------------*/
 @media (max-width: 768px) {
-  /* Header simplificado */
+  /* HEADER */
   .contenedor-header {
     justify-content: space-between;
+    padding: 10px 15px;
   }
 
   .nav {
-    display: none; /* ocultamos menú escritorio */
+    display: none; /* Menú de escritorio oculto */
   }
 
   .toggle-btn {
-    display: block; /* mostramos el botón hamburguesa */
+    display: block; /* Mostramos el botón hamburguesa */
   }
 
-  /* Hero reducido */
+  /* HERO */
   .jlmn-texto {
     position: relative;
     top: auto;
     left: auto;
     transform: none;
-    background: rgba(0,0,0,0.6);
-    margin: 10px auto;
-    border-radius: 10px;
+    max-width: 90%;
+    margin: 15px auto;
+    font-size: 14px;
   }
   .jlmn-texto h1 {
     font-size: 20px;
@@ -418,7 +419,30 @@ body.tema-claro .menu-videos .opcion:hover {
     font-size: 14px;
   }
 
-  /* Videos apilados */
+  /* GALERÍA */
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .img-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+  .imagenes img {
+    width: 100% !important;
+    height: auto;
+  }
+
+  /* SECCIONES */
+  .seccion {
+    padding: 40px 15px;
+  }
+  .seccion h2 {
+    font-size: 22px;
+  }
+
+  /* VIDEOS */
   .contenedor-videos {
     flex-direction: column;
   }
@@ -426,8 +450,7 @@ body.tema-claro .menu-videos .opcion:hover {
     width: 100%;
     flex-direction: row;
     overflow-x: auto;
-    background: var(--color-gris);
-    padding: 10px;
+    padding: 8px;
     border-radius: 6px;
   }
   .menu-videos .opcion {
@@ -441,32 +464,28 @@ body.tema-claro .menu-videos .opcion:hover {
     margin-top: 15px;
   }
 
-  /* Botones más táctiles */
-  .img-btn {
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    padding: 15px;
-  }
-
-  /* PDF más pequeño */
+  /* PDF */
   .pdf {
     height: 300px;
   }
 
-  /* Footer compacto */
+  /* FOOTER */
   footer {
     font-size: 14px;
     padding: 15px;
   }
 }
 
-/* Versión escritorio (>768px) */
+/* ------------------------------
+   INTERFAZ ESCRITORIO
+--------------------------------*/
 @media (min-width: 769px) {
   .toggle-btn {
-    display: none; /* botón hamburguesa no aparece */
+    display: none; /* Hamburguesa solo en móvil */
   }
   .nav {
     display: flex;
   }
 }
+
+
