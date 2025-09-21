@@ -274,8 +274,6 @@ footer {
 /* ------------------------------
    TEMAS
 --------------------------------*/
-
-/* Tema oscuro */
 body.tema-oscuro {
   background: var(--color-negro);
   color: var(--color-blanco);
@@ -294,7 +292,6 @@ body.tema-oscuro footer {
   color: var(--color-blanco);
 }
 
-/* Tema claro */
 body.tema-claro {
   background: #ffffff;
   color: #000000;
@@ -329,32 +326,35 @@ body.tema-claro .menu-videos .opcion {
 body.tema-claro .menu-videos .opcion:hover {
   border-color: var(--color-azul);
 }
+
+/* ------------------------------
+   ANIMACIÓN LOGO
+--------------------------------*/
 .logo img {
   width: 40px;
   filter: drop-shadow(0 0 6px var(--color-azul))
           drop-shadow(0 0 12px var(--color-azul));
-          animation: flotar 1.2s ease-in-out infinite;
+  animation: flotar 1.2s ease-in-out infinite;
 }
 @keyframes flotar {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
-/* quienes somos */
+
+/* ------------------------------
+   QUIENES SOMOS
+--------------------------------*/
 .galeria {
   text-align: center;
   margin: 20px auto;
 }
-
-/* Botones en horizontal */
 .botones {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
 }
-
-/* Estilo de los botones */
 .img-btn {
   background: linear-gradient(135deg, #0d1b2a, #1b263b);
   color: #00aaff;
@@ -368,22 +368,85 @@ body.tema-claro .menu-videos .opcion:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .img-btn:hover {
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
   box-shadow: 0 0 18px rgba(0, 170, 255, 0.7);
   transform: scale(1s);
 }
-
 .img-btn:active {
   transform: scale(0.95);
   box-shadow: 0 3px 8px rgba(0, 170, 255, 0.5);
 }
-
-/* Imagen centrada */
 .imagenes img {
   display: block;
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 170, 255, 0.5);
+}
+
+/* ------------------------------
+   RESPONSIVE (MÓVIL)
+--------------------------------*/
+@media (max-width: 768px) {
+  .contenedor-header {
+    padding: 10px 15px;
+  }
+
+  .nav {
+    display: none; /* ocultamos menú desktop */
+  }
+
+  .jlmn-texto {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .jlmn-texto h1 {
+    font-size: 22px;
+  }
+  .jlmn-texto p {
+    font-size: 14px;
+  }
+
+  .splide {
+    height: 250px;
+  }
+  .splide__slide img {
+    height: 250px;
+  }
+
+  .contenedor-videos {
+    flex-direction: column;
+  }
+  .menu-videos {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  .menu-videos .opcion {
+    flex: 0 0 auto;
+    min-width: 120px;
+    text-align: center;
+  }
+  .video-principal {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .seccion {
+    padding: 40px 15px;
+  }
+
+  .pdf {
+    height: 350px;
+  }
+
+  .botones {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .img-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
 }
