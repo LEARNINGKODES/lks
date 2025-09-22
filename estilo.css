@@ -10,17 +10,25 @@
   --fuente-texto: 'Poppins', sans-serif;
   --fuente-titulos: 'Playfair Display', serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0;
+   padding: 0;
+    box-sizing: border-box;
+   }
 
 body {
-  font-family: var(--fuente-texto);
-  transition: background 0.3s, color 0.3s;
+   font-family: var(--fuente-texto);
+    transition: background 0.3s, color 0.3s;
+    animation: cambioColor 10s infinite alternate;
 }
+
+@keyframes cambioColor {
+  0%   { background-color: #0077ff; }
+  25%  { background-color: #0b0b0b; }
+  50%  { background-color: #1a1a1a; }
+  100%  { background-color: #ffffff; }
+}
+  
+  
 
 img {
   display: block;
@@ -274,6 +282,8 @@ footer {
 /* ------------------------------
    TEMAS
 --------------------------------*/
+
+/* Tema oscuro */
 body.tema-oscuro {
   background: var(--color-negro);
   color: var(--color-blanco);
@@ -292,6 +302,7 @@ body.tema-oscuro footer {
   color: var(--color-blanco);
 }
 
+/* Tema claro */
 body.tema-claro {
   background: #ffffff;
   color: #000000;
@@ -326,35 +337,32 @@ body.tema-claro .menu-videos .opcion {
 body.tema-claro .menu-videos .opcion:hover {
   border-color: var(--color-azul);
 }
-
-/* ------------------------------
-   ANIMACIÓN LOGO
---------------------------------*/
 .logo img {
   width: 40px;
   filter: drop-shadow(0 0 6px var(--color-azul))
           drop-shadow(0 0 12px var(--color-azul));
-  animation: flotar 1.2s ease-in-out infinite;
+          animation: flotar 1.2s ease-in-out infinite;
 }
 @keyframes flotar {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
-
-/* ------------------------------
-   QUIENES SOMOS
---------------------------------*/
+/* quienes somos */
 .galeria {
   text-align: center;
   margin: 20px auto;
 }
+
+/* Botones en horizontal */
 .botones {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
 }
+
+/* Estilo de los botones */
 .img-btn {
   background: linear-gradient(135deg, #0d1b2a, #1b263b);
   color: #00aaff;
@@ -368,22 +376,25 @@ body.tema-claro .menu-videos .opcion:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .img-btn:hover {
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
   box-shadow: 0 0 18px rgba(0, 170, 255, 0.7);
   transform: scale(1s);
 }
+
 .img-btn:active {
   transform: scale(0.95);
   box-shadow: 0 3px 8px rgba(0, 170, 255, 0.5);
 }
+
+/* Imagen centrada */
 .imagenes img {
   display: block;
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 170, 255, 0.5);
 }
-
 /* ------------------------------
    INTERFAZ MÓVIL DIFERENTE
 --------------------------------*/
@@ -487,5 +498,3 @@ body.tema-claro .menu-videos .opcion:hover {
     display: flex;
   }
 }
-
-
