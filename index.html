@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
 </head>
 <body class="tema-oscuro">
+  <div class="background"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -24,7 +25,7 @@
         <a href="SUBMENÚ/DOFA.html" data-es="DOFA" data-en="SWOT">DOFA</a>
         <a href="SUBMENÚ/MARCOTEORICO.html" data-es="Marco Teórico" data-en="Theoretical Framework">Marco Teórico</a>
         <a href="cronograma.html" data-es="Cronograma" data-en="Schedule">Cronograma</a>
-        <a href="menu.html" data-es="Menú" data-en="Menu">Menu</a>
+        <a href="juego.html" data-es="Menú" data-en="Menu">juego</a>
         <a href=""></a>
       </nav>
       <!-- Botón Sidebar -->
@@ -39,11 +40,6 @@
       <button class="cerrar-btn" onclick="toggleSidebar()">✖</button>
     </div>
     <div class="sidebar-opciones">
-      <h3 data-es="Tema" data-en="Theme">Tema</h3>
-      <div class="opcion-grupo">
-        <button onclick="cambiarTema('claro')">Claro</button>
-        <button onclick="cambiarTema('oscuro')">Oscuro</button>
-      </div>
       <h3 data-es="Idioma" data-en="Language">Idioma</h3>
       <div class="opcion-grupo">
         <button onclick="cambiarIdioma('es')">Español</button>
@@ -74,16 +70,16 @@
          data-en="Learn programming in a fun and interactive way with games, activities, and resources.">
          Aprende programación de manera divertida e interactiva con juegos, actividades y recursos.
       </p>
-      <a href="SUBMENÚ/LK_CODES.html" class="btn" data-es="Comenzar" data-en="Start">Comenzar</a>
+      <a href="menu.html" class="btn" data-es="Comenzar" data-en="Start">Comenzar</a>
     </div>
   </section>
   <div class="galeria">
     <!-- Botones -->
     <div class="botones">
-      <button class="img-btn" onclick="mostrarimagen(1)">MISSION</button>
-      <button class="img-btn" onclick="mostrarimagen(2)">VISSION</button>
-      <button class="img-btn" onclick="mostrarimagen(3)">GENERAL OBJ</button>
-      <button class="img-btn" onclick="mostrarimagen(4)">SPECIFIC OBJ</button>
+      <button class="img-btn" onclick="mostrarimagen(1)">mision</button>
+      <button class="img-btn" onclick="mostrarimagen(2)">vision</button>
+      <button class="img-btn" onclick="mostrarimagen(3)">general obj</button>
+      <button class="img-btn" onclick="mostrarimagen(4)">spesific obj</button>
     </div>
   
     <!-- Contenedor de imágenes -->
@@ -128,7 +124,7 @@
         <button class="opcion" onclick="cambiarVideo('video4', this)">VIDEOS</button>
       </aside>
       <div class="video-principal">
-        <video id="video1" src="./videosis/Learningkodessketch.mp4" controls autoplay></video>
+        <video id="video1" src="./videosis/Learningkodes.mp4" controls autoplay></video>
         <video id="video2" src="./videosis/SI.mp4" controls style="display:none;"></video>
         <video id="video3" src="./videosis/NO.mp4" controls style="display:none;"></video>
         <video id="video4" src="./videosis/proyectos.mp4" controls style="display:none;"></video>
@@ -205,5 +201,3 @@ let nivelActual = 0;
 
 </body>
 </html>
-
-
