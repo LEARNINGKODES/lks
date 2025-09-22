@@ -1,4 +1,4 @@
-/* 🎨 Variables de color y fuente */
+
 :root {
   --color-azul: #0077ff;
   --color-negro: #0b0b0b;
@@ -242,4 +242,25 @@ main {
     margin-left: 0;
     width: 100%;
   }
+}
+.BUTTON{
+  background: linear-gradient(var( 135deg,--color-azul,--color-gris));
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow:  0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+.BUTTON:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(var( 135deg,--color-gris,--color-azul));
+}
+.BUTTON:active{
+  transform:translateY(1px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
