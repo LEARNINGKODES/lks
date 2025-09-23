@@ -1,3 +1,17 @@
+@media (max-width: 768px) {
+  .sidebar {
+    width: 90vw;
+    max-width: 98vw;
+    right: -100vw;
+    border-radius: 0 18px 18px 0;
+    padding: 24px 10px 24px 10px;
+    min-width: 0;
+    transition: right 0.3s cubic-bezier(.77,0,.18,1);
+  }
+  .sidebar.open {
+    right: 0;
+  }
+}
 :root {
   --color-azul: #0077ff;
   --color-negro: #0b0b0b;
