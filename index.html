@@ -76,10 +76,10 @@
   <div class="galeria">
     <!-- Botones -->
     <div class="botones">
-      <button class="img-btn" onclick="mostrarimagen(1)">mision</button>
-      <button class="img-btn" onclick="mostrarimagen(2)">vision</button>
-      <button class="img-btn" onclick="mostrarimagen(3)">general obj</button>
-      <button class="img-btn" onclick="mostrarimagen(4)">spesific obj</button>
+      <button class="img-btn" onclick="mostrarimagen(1)">MISSION</button>
+      <button class="img-btn" onclick="mostrarimagen(2)">VISSION</button>
+      <button class="img-btn" onclick="mostrarimagen(3)">GENERAL OBJ</button>
+      <button class="img-btn" onclick="mostrarimagen(4)">SPECIFIC OBJ</button>
     </div>
   
     <!-- Contenedor de imágenes -->
@@ -124,7 +124,7 @@
         <button class="opcion" onclick="cambiarVideo('video4', this)">VIDEOS</button>
       </aside>
       <div class="video-principal">
-        <video id="video1" src="./videosis/Learningkodessketch.mp4" controls autoplay></video>
+        <video id="video1" src="./videosis/Learningkodes.mp4" controls autoplay></video>
         <video id="video2" src="./videosis/SI.mp4" controls style="display:none;"></video>
         <video id="video3" src="./videosis/NO.mp4" controls style="display:none;"></video>
         <video id="video4" src="./videosis/proyectos.mp4" controls style="display:none;"></video>
@@ -189,7 +189,7 @@
       document.querySelectorAll('.menu-videos .opcion').forEach(b => b.classList.remove('activo'));
       btn.classList.add('activo');
     }
-    document.addEventListener("visibilitychange", () => {
+    document.addEventListener("visibilitychange", () => { 
   if (document.hidden) {
     document.title = "Regresa :'(";
   } else {
