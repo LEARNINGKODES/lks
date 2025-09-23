@@ -314,23 +314,19 @@ body.tema-oscuro footer {
 @keyframes flotar {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+ 100% { transform: translateY(0px); }
 }
 /* quienes somos */
 .galeria {
   text-align: center;
   margin: 20px auto;
 }
-
-/* Botones en horizontal */
 .botones {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
 }
-
-/* Estilo de los botones */
 .img-btn {
   background: linear-gradient(135deg, #0d1b2a, #1b263b);
   color: #00aaff;
@@ -344,19 +340,15 @@ body.tema-oscuro footer {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .img-btn:hover {
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
   box-shadow: 0 0 18px rgba(0, 170, 255, 0.7);
   transform: scale(1s);
 }
-
 .img-btn:active {
   transform: scale(0.95);
   box-shadow: 0 3px 8px rgba(0, 170, 255, 0.5);
 }
-
-/* Imagen centrada */
 .imagenes img {
   display: block;
   margin: 0 auto;
