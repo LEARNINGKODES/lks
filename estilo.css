@@ -1,3 +1,4 @@
+
 @media (max-width: 768px) {
   .sidebar {
     width: 90vw;
@@ -12,6 +13,7 @@
     right: 0;
   }
 }
+
 :root {
   --color-azul: #0077ff;
   --color-negro: #0b0b0b;
