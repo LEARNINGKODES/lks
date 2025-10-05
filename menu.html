@@ -95,20 +95,14 @@
   <script>
     const logo = document.querySelector('.menu-header .logo img');
     const floatingText = document.getElementById('floatingText');
-    
-    let posX = 50;
-    let posY = 50;
-    let dirX = 3;
-    let dirY = 2.5;
-    const logoWidth = logo.offsetWidth;
-    const logoHeight = logo.offsetHeight;
-    
-    let waiting = true;
-    let tiredTime = 4000;
-    let mouseX = posX;
-    let mouseY = posY;
-    
-    // Mensajes aleatorios
+    let posX = 50, posY = 50;
+    let dirX = 3, dirY = 2.5;
+    let logoWidth = logo.offsetWidth, logoHeight = logo.offsetHeight;
+    let mode = 'idle'; // 'idle', 'follow', 'wander'
+    let mouseX = posX, mouseY = posY;
+    let wanderTimeout = null, followTimeout = null;
+    let lastModeSwitch = Date.now();
+    let tiredTime = 20000; // 20 segundos
     const beeMessages = [
       "Bzzzz...",
       "Bzz, bzz, bzz!",
@@ -121,7 +115,7 @@
       "¡Zumbando contenta!",
       "¡Aquí va la abeja viajera!"
     ];
-    
+
     // Detectar abandono de página (pérdida de foco)
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -130,47 +124,76 @@
         showFloatingText("¡Qué bueno que volviste!");
       }
     });
-    
-    // Movimiento aleatorio tipo zigzag con tamaño y rotación
-    function moveLogo() {
+
+    // Movimiento principal
+    function animateBee() {
+      logoWidth = logo.offsetWidth;
+      logoHeight = logo.offsetHeight;
       const maxX = window.innerWidth - logoWidth - 10;
       const maxY = window.innerHeight - logoHeight - 10;
-    
-      if(!waiting) {
+      let flipX = 1;
+      let scale = 0.9 + Math.random() * 0.2;
+      let rotateZ = Math.random() * 10 - 5;
+
+      if (mode === 'follow') {
+        posX += (mouseX - posX) * 0.08;
+        posY += (mouseY - posY) * 0.08;
+        flipX = (mouseX < posX) ? -1 : 1;
+      } else if (mode === 'wander') {
         posX += dirX * (Math.random() * 1.5 + 0.5);
         posY += dirY * (Math.random() * 1.5 + 0.5);
-    
-        if(posX <= 0 || posX >= maxX) dirX = -dirX;
-        if(posY <= 0 || posY >= maxY) dirY = -dirY;
-    
-        const scale = 0.8 + Math.random() * 0.4;
-        const rotateZ = Math.random() * 10 - 5;
-        const flipX = (mouseX < posX) ? -1 : 1;
-    
-        logo.style.transform = `rotateZ(${rotateZ}deg) scale(${scale}) scaleX(${flipX})`;
-        logo.style.left = posX + 'px';
-        logo.style.top = posY + 'px';
+        if (posX <= 0 || posX >= maxX) dirX = -dirX;
+        if (posY <= 0 || posY >= maxY) dirY = -dirY;
+        flipX = dirX < 0 ? -1 : 1;
       }
-    
-      requestAnimationFrame(moveLogo);
+
+      // Limitar dentro de la pantalla
+      posX = Math.max(0, Math.min(posX, maxX));
+      posY = Math.max(0, Math.min(posY, maxY));
+
+      logo.style.transform = `rotateZ(${rotateZ}deg) scale(${scale}) scaleX(${flipX})`;
+      logo.style.left = posX + 'px';
+      logo.style.top = posY + 'px';
+      requestAnimationFrame(animateBee);
     }
-    
-    // Suave seguimiento al cursor
+
+    // Cambia a modo wander después de 20s
+    function startWanderMode() {
+      mode = 'wander';
+      lastModeSwitch = Date.now();
+      showFloatingText("¡Ya me cansé de esperar!");
+      scheduleFollowMode();
+    }
+
+    // De vez en cuando vuelve a seguir el mouse
+    function scheduleFollowMode() {
+      clearTimeout(followTimeout);
+      followTimeout = setTimeout(() => {
+        mode = 'follow';
+        lastModeSwitch = Date.now();
+        showFloatingText("¡Ahora te sigo otra vez!");
+        scheduleWanderMode();
+      }, 8000 + Math.random() * 8000); // Sigue el mouse 8-16s
+    }
+
+    function scheduleWanderMode() {
+      clearTimeout(wanderTimeout);
+      wanderTimeout = setTimeout(() => {
+        mode = 'wander';
+        lastModeSwitch = Date.now();
+        showFloatingText("¡Me aburro, a volar!");
+        scheduleFollowMode();
+      }, 8000 + Math.random() * 8000); // Vuela solo 8-16s
+    }
+
+    // Mouse solo afecta en modo follow
     document.addEventListener('mousemove', (e) => {
-      if(Math.random() < 0.15) {
+      if (mode === 'follow') {
         mouseX = e.pageX + 10;
         mouseY = e.pageY + 10;
       }
     });
-    
-    function followCursor() {
-      posX += (mouseX - posX) * 0.05;
-      posY += (mouseY - posY) * 0.05;
-      logo.style.left = posX + 'px';
-      logo.style.top = posY + 'px';
-      requestAnimationFrame(followCursor);
-    }
-    
+
     // Texto flotante tipo burbuja
     function showFloatingText(text) {
       floatingText.innerText = text;
@@ -178,30 +201,24 @@
       floatingText.style.top = (posY - 30) + 'px';
       floatingText.style.opacity = 1;
       floatingText.style.transform = 'translateY(-40px)';
-    
       setTimeout(() => {
         floatingText.style.opacity = 0;
         floatingText.style.transform = 'translateY(-60px)';
       }, 2000);
     }
-    
-    // Se cansa de esperar y empieza a volar
-    setTimeout(() => {
-      waiting = false;
-      showFloatingText("¡Ya me cansé de esperar!");
-    }, tiredTime);
-    
-    // Textos aleatorios mientras vuela
+
+    // Mensajes aleatorios mientras vuela
     setInterval(() => {
-      if (!waiting && Math.random() < 0.3) {
+      if (mode === 'wander' && Math.random() < 0.3) {
         const msg = beeMessages[Math.floor(Math.random() * beeMessages.length)];
         showFloatingText(msg);
       }
     }, 4000);
-    
-    // Iniciar animaciones
-    moveLogo();
-    followCursor();
+
+    // Iniciar animación y lógica
+    mode = 'follow';
+    animateBee();
+    setTimeout(startWanderMode, tiredTime);
     </script>
     <footer class="menu-footer">
     <p>Creado por JLMN & FSDM</p>
