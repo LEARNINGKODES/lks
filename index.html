@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-es="Learning Kodes" data-en="Learning Kodes">Learning Kodes</title>
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Tu CSS externo -->
   <link rel="stylesheet" href="estilo.css">
-  <!-- Splide CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
 </head>
 <body class="tema-oscuro">
@@ -16,36 +13,42 @@
   <header class="header">
     <div class="contenedor-header">
       <div class="logo">
-        <img src="img/Logotipo.png" alt="Logo LK">
+        <img src="img/Logotipo.png" alt="Logo LK" data-es="Logo LK" data-en="LK Logo">
         <span id="titulo-logo" data-es="LEARNING KODES" data-en="LEARNING KODES">LEARNING KODES</span>
       </div>
-      <nav class="nav">
-        <a href="SUBMENÚ/teoriacolor.html" data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</a>
-        <a href="SUBMENÚ/DOFA.html" data-es="DOFA" data-en="SWOT">DOFA</a>
-        <a href="SUBMENÚ/MARCOTEORICO.html" data-es="Marco Teórico" data-en="Theoretical Framework">Marco Teórico</a>
-        <a href="cronograma.html" data-es="Cronograma" data-en="Schedule">Cronograma</a>
-        <a href="juego.html" data-es="Juego" data-en="Game">Juego</a>
+      <nav class="nav-menu">
+        <a href="#quienes-somos" data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</a>
+        <a href="#solucion-tecnologica" data-es="Solución Tecnológica" data-en="Technological Solution">Solución Tecnológica</a>
+        <a href="#perfiles" data-es="Perfiles" data-en="Profiles">Perfiles</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+        <button id="language-toggle" onclick="toggleLanguage()" data-es="Inglés" data-en="Spanish">Inglés</button>
       </nav>
-      <button class="toggle-btn" onclick="toggleSidebar()" data-es="Menú" data-en="Menu">☰</button>
+      <button class="toggle-btn" onclick="toggleSidebar()" data-es="☰" data-en="☰">☰</button>
     </div>
   </header>
 
   <!-- SIDEBAR -->
-  <aside id="sidebar" class="sidebar open">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-header">
-      <h2 data-es="⚙️ Ajustes" data-en="⚙️ Settings">⚙️ Ajustes</h2>
-      <button class="cerrar-btn" onclick="toggleSidebar()" data-es="Cerrar" data-en="Close">✖</button>
+      <h2 data-es="Learning Kodes" data-en="Learning Kodes">Learning Kodes</h2>
+      <button class="cerrar-btn" onclick="toggleSidebar()">✖</button>
     </div>
     <div class="sidebar-opciones">
-      <h3 data-es="Idioma" data-en="Language">Idioma</h3>
-      <div class="opcion-grupo">
-        <button onclick="cambiarIdioma('es')" data-es="Español" data-en="Spanish">Español</button>
-        <button onclick="cambiarIdioma('en')" data-es="Inglés" data-en="English">Inglés</button>
-      </div>
-      <h3 data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</h3>
-      <div class="opcion-grupo">
-        <button class="img-btn" onclick="mostrarimagen(5)" data-es="Luis Niño" data-en="Luis Niño">Luis Niño</button>
-        <button class="img-btn" onclick="mostrarimagen(6)" data-es="Fabián Devia" data-en="Fabián Devia">Fabián Devia</button>
+      <h3 data-es="Solución Tecnológica" data-en="Technological Solution">Solución Tecnológica</h3>
+      <button class="btn juego-btn" onclick="window.location.href='juego.html'" data-es="Juego" data-en="Game">Juego</button>
+      <h3 data-es="Menú" data-en="Menu">Menú</h3>
+      <button class="btn menu-btn" onclick="window.location.href='menu.html'" data-es="Menú Principal" data-en="Main Menu">Menú Principal</button>
+      <button class="btn language-btn" onclick="toggleLanguage()" data-es="Inglés" data-en="Spanish">Inglés</button>
+      <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
+      <p data-es="learningkodesKontact@gmail.com" data-en="learningkodesKontact@gmail.com">learningkodesKontact@gmail.com</p>
+      <h3 data-es="Redes" data-en="Social Media">Redes</h3>
+      <div class="redes-sociales">
+        <a href="https://youtube.com/@learningkodes?si=SQfU-CWgqLbkymQH" target="_blank">
+          <img src="img/youtube-icon.png" alt="YouTube" style="width: 30px;" data-es="YouTube" data-en="YouTube">
+        </a>
+        <a href="https://t.me/learningkodes" target="_blank">
+          <img src="img/telegram-icon.png" alt="Telegram" style="width: 30px;" data-es="Telegram" data-en="Telegram">
+        </a>
       </div>
     </div>
   </aside>
@@ -55,24 +58,108 @@
     <div class="splide" aria-label="Galería de imágenes">
       <div class="splide__track">
         <ul class="splide__list">
-          <li class="splide__slide"><img src="./img/SLIDE11.jpg" alt="Slide 1" data-es="Diapositiva 1" data-en="Slide 1"></li>
-          <li class="splide__slide"><img src="./img/evidencia1 (1).png" alt="Evidencia 1" data-es="Evidencia 1" data-en="Evidence 1"></li>
-          <li class="splide__slide"><img src="./img/SLIDE14.jpg" alt="Slide 2" data-es="Diapositiva 2" data-en="Slide 2"></li>
-          <li class="splide__slide"><img src="./img/evidencia1 (2).png" alt="Evidencia 2" data-es="Evidencia 2" data-en="Evidence 2"></li>
-          <li class="splide__slide"><img src="./img/SLIDE12.jpg" alt="Slide 3" data-es="Diapositiva 3" data-en="Slide 3"></li>
-          <li class="splide__slide"><img src="./img/evidencia1 (3).png" alt="Evidencia 3" data-es="Evidencia 3" data-en="Evidence 3"></li>
-          <li class="splide__slide"><img src="./img/SLIDE13.jpg" alt="Slide 4" data-es="Diapositiva 4" data-en="Slide 4"></li>
-          <li class="splide__slide"><img src="./img/lks (1).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (10).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (2).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (3).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (5).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (6).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (7).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (8).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/lks (9).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
-          <li class="splide__slide"><img src="./img/evidencia1 (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence"></li>
+          <li class="splide__slide">
+            <img src="./img/SLIDE11.jpg" alt="Diapositiva 1" data-es="Diapositiva 1" data-en="Slide 1">
+            <div class="slide-description">
+              <p data-es="Introducción a la programación interactiva." data-en="Introduction to interactive programming."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/evidencia1 (1).png" alt="Evidencia 1" data-es="Evidencia 1" data-en="Evidence 1">
+            <div class="slide-description">
+              <p data-es="Captura de nuestro primer proyecto educativo." data-en="Screenshot of our first educational project."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/SLIDE14.jpg" alt="Diapositiva 2" data-es="Diapositiva 2" data-en="Slide 2">
+            <div class="slide-description">
+              <p data-es="Explorando conceptos avanzados de codificación." data-en="Exploring advanced coding concepts."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/evidencia1 (2).png" alt="Evidencia 2" data-es="Evidencia 2" data-en="Evidence 2">
+            <div class="slide-description">
+              <p data-es="Interfaz de usuario en desarrollo." data-en="User interface in development."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/SLIDE12.jpg" alt="Diapositiva 3" data-es="Diapositiva 3" data-en="Slide 3">
+            <div class="slide-description">
+              <p data-es="Demostración de juegos educativos." data-en="Demonstration of educational games."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/evidencia1 (3).png" alt="Evidencia 3" data-es="Evidencia 3" data-en="Evidence 3">
+            <div class="slide-description">
+              <p data-es="Prototipo de aplicación interactiva." data-en="Prototype of an interactive application."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/SLIDE13.jpg" alt="Diapositiva 4" data-es="Diapositiva 4" data-en="Slide 4">
+            <div class="slide-description">
+              <p data-es="Diseño final de la plataforma." data-en="Final design of the platform."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (1).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Recursos adicionales para aprendizaje." data-en="Additional learning resources."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (10).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Ejemplo de código funcional." data-en="Example of functional code."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (2).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Interfaz de usuario optimizada." data-en="Optimized user interface."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Pruebas de usabilidad." data-en="Usability testing."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (5).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Diseño de niveles de juego." data-en="Game level design."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (6).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Progreso del desarrollo del juego." data-en="Game development progress."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (7).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Integración de elementos interactivos." data-en="Integration of interactive elements."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (8).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Pruebas de compatibilidad." data-en="Compatibility testing."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/lks (9).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Optimización de rendimiento." data-en="Performance optimization."></p>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <img src="./img/evidencia1 (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
+            <div class="slide-description">
+              <p data-es="Vista previa de la plataforma completa." data-en="Preview of the complete platform."></p>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -83,38 +170,95 @@
     </div>
   </section>
 
-  <!-- Galería / Sección de contenido + botones + info persona -->
-  <div class="galeria">
-    <div class="botones">
-      <button class="img-btn" onclick="mostrarimagen(1)" data-es="Misión" data-en="Mission">Misión</button>
-      <button class="img-btn" onclick="mostrarimagen(2)" data-es="Visión" data-en="Vision">Visión</button>
-      <button class="img-btn" onclick="mostrarimagen(3)" data-es="Objetivo General" data-en="General Objective">Objetivo General</button>
-      <button class="img-btn" onclick="mostrarimagen(4)" data-es="Objetivo Específico" data-en="Specific Objective">Objetivo Específico</button>
+  <!-- PREGUNTA PROBLEMA -->
+  <section id="pregunta-problema" class="seccion">
+    <div class="contenedor">
+      <h2 data-es="Pregunta Problema" data-en="Problem Question">Pregunta Problema</h2>
+      <div class="pregunta-imagen">
+        <img src="./img/pregunta-problema.png" alt="Pregunta Problema" data-es="Pregunta Problema: ¿Cómo enseñar programación de forma efectiva?" data-en="Problem Question: How to teach programming effectively?">
+      </div>
     </div>
+  </section>
 
-    <div id="info-persona" style="display: none; align-items: center; gap: 20px; margin-top: 20px;">
-      <img id="persona-img" src="" alt="Persona" style="width: 300px;" data-es="Persona" data-en="Person">
-      <div id="persona-texto" style="color: white; max-width: 400px;"></div>
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes-somos" class="seccion">
+    <div class="contenedor">
+      <h2 data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</h2>
+      <div class="botones">
+        <button class="img-btn" onclick="mostrarimagen(1)" data-es="Misión" data-en="Mission">Misión</button>
+        <button class="img-btn" onclick="mostrarimagen(2)" data-es="Visión" data-en="Vision">Visión</button>
+        <button class="img-btn" onclick="mostrarimagen(3)" data-es="Objetivo General" data-en="General Objective">Objetivo General</button>
+        <button class="img-btn" onclick="mostrarimagen(4)" data-es="Objetivo Específico" data-en="Specific Objective">Objetivo Específico</button>
+      </div>
+      <div id="quienes-info" style="display: none;">
+        <img id="quienes-img" src="" alt="Quiénes Somos" style="width: 600px;" data-es="Quiénes Somos" data-en="Who We Are">
+      </div>
     </div>
+  </section>
 
-    <div class="imagenes">
-      <img id="img1" src="./img/1.png" alt="Imagen 1" style="display: none; width:600px;" data-es="Imagen 1" data-en="Image 1">
-      <img id="img2" src="./img/2.png" alt="Imagen 2" style="display: none; width:600px;" data-es="Imagen 2" data-en="Image 2">
-      <img id="img3" src="./img/3.png" alt="Imagen 3" style="display: none; width:600px;" data-es="Imagen 3" data-en="Image 3">
-      <img id="img4" src="./img/4.png" alt="Imagen 4" style="display: none; width:600px;" data-es="Imagen 4" data-en="Image 4">
-      <img id="img5" src="./img/JLMN.jpg" alt="Imagen 5" style="display: none; width:300px;" data-es="Imagen 5" data-en="Image 5">
-      <img id="img6" src="./img/FSDM.jpg" alt="Imagen 6" style="display: none; width:300px;" data-es="Imagen 6" data-en="Image 6">
+  <!-- SOLUCIÓN TECNOLÓGICA -->
+  <section id="solucion-tecnologica" class="seccion">
+    <div class="contenedor">
+      <h2 data-es="Solución Tecnológica" data-en="Technological Solution">Solución Tecnológica</h2>
+      <div class="botones">
+        <button class="img-btn" onclick="mostrarSolucion()" data-es="Ver Solución" data-en="View Solution">Ver Solución</button>
+      </div>
+      <div id="solucion-info" style="display: none;">
+        <div class="solucion-contenido">
+          <div class="solucion-texto">
+            <p data-es="La única solución tecnológica propuesta consiste en la implementación de un juego interactivo educativo dentro de la página web. Este juego tiene como finalidad enseñar a los niños los fundamentos básicos de la programación en HTML y CSS de una forma dinámica y entretenida. Mediante diversos retos y actividades, el usuario aprende los principios del desarrollo web mientras obtiene recompensas y disfruta del proceso de aprendizaje.
+
+            Esta solución tecnológica resulta efectiva, ya que combina el aprendizaje práctico con la diversión, lo que facilita la comprensión de los conceptos y motiva al usuario a continuar desarrollando sus habilidades en programación." data-en="The only technological solution proposed is the implementation of an interactive educational game within the website. This game aims to teach children the fundamentals of HTML and CSS programming in a dynamic and entertaining way. Through various challenges and activities, users learn the principles of web development while earning rewards and enjoying the learning process.
+
+            This technological solution is effective because it combines hands-on learning with fun, facilitating the understanding of concepts and motivating users to continue developing their programming skills.">La única solución tecnológica propuesta consiste en la implementación de un juego interactivo educativo dentro de la página web. Este juego tiene como finalidad enseñar a los niños los fundamentos básicos de la programación en HTML y CSS de una forma dinámica y entretenida. Mediante diversos retos y actividades, el usuario aprende los principios del desarrollo web mientras obtiene recompensas y disfruta del proceso de aprendizaje.
+
+            Esta solución tecnológica resulta efectiva, ya que combina el aprendizaje práctico con la diversión, lo que facilita la comprensión de los conceptos y motiva al usuario a continuar desarrollando sus habilidades en programación.</p>
+          </div>
+          <div class="solucion-video">
+            <video src="./videosis/Learningkodes.mp4" controls style="width: 100%;" data-es="Video de la solución tecnológica" data-en="Technological solution video"></video>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Sección de objetivos -->
+  <!-- PERFILES -->
+  <section id="perfiles" class="seccion">
+    <div class="contenedor">
+      <h2 data-es="Perfiles" data-en="Profiles">Perfiles</h2>
+      <div class="perfiles-contenedor" id="perfiles-contenedor">
+        <div id="perfil-luis" class="perfil">
+          <button class="img-btn" onclick="mostrarimagen(5)" data-es="Luis Niño" data-en="Luis Niño">
+            <img src="./img/JLMN.jpg" alt="Luis Niño" style="width: 200px;" data-es="Luis Niño" data-en="Luis Niño">
+            <h3 data-es="Luis Niño" data-en="Luis Niño">Luis Niño</h3>
+          </button>
+        </div>
+        <div id="perfil-fabian" class="perfil">
+          <button class="img-btn" onclick="mostrarimagen(6)" data-es="Fabián Devia" data-en="Fabián Devia">
+            <img src="./img/FSDM.jpg" alt="Fabián Devia" style="width: 200px;" data-es="Fabián Devia" data-en="Fabián Devia">
+            <h3 data-es="Fabián Devia" data-en="Fabián Devia">Fabián Devia</h3>
+          </button>
+        </div>
+      </div>
+      <div id="perfiles-buttons" style="display: none;">
+        <button class="img-btn" onclick="mostrarimagen(5)" data-es="Luis Niño" data-en="Luis Niño">Luis Niño</button>
+        <button class="img-btn" onclick="mostrarimagen(6)" data-es="Fabián Devia" data-en="Fabián Devia">Fabián Devia</button>
+      </div>
+      <div id="perfiles-info" style="display: none;">
+        <img id="perfil-img" src="" alt="Perfil" style="width: 300px;" data-es="Perfil" data-en="Profile">
+        <div id="perfil-texto" class="perfil-texto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
   <section id="secciones" class="seccion">
     <div class="contenedor">
-      <h2 id="que" data-es="¿Qué buscamos?" data-en="What are we looking for?">¿Qué buscamos?</h2>
+      <h2 data-es="¿Qué buscamos?" data-en="What are we looking for?">¿Qué buscamos?</h2>
       <ul class="objetivos">
-        <li data-es="Comprender las bases de la programación." data-en="Understand the basics of programming.">Comprender las bases de la programación.</li>
-        <li data-es="Usar la tecnología con fines educativos." data-en="Use technology for educational purposes.">Usar la tecnología con fines educativos.</li>
-        <li data-es="Convertir el aprendizaje en una experiencia divertida." data-en="Turn learning into a fun experience.">Convertir el aprendizaje en una experiencia divertida.</li>
+        <li data-es="Comprender las bases de la programación." data-en="Understand the basics of programming.">Comprender, dar a entender y enseñar de forma clara y concisa las bases de la programación.</li>
+        <li data-es="Usar la tecnología con fines educativos." data-en="Use technology for educational purposes.">Poder usar la tecnología con fines educativos, tanto en ambientes estudiantiles, como en ambientes hogareños.</li>
+        <li data-es="Convertir el aprendizaje en una experiencia divertida." data-en="Turn learning into a fun experience.">Convertir el aprendizaje en una experiencia divertida, para evitar un desinterés por la práctica del programa.</li>
       </ul>
     </div>
   </section>
@@ -138,23 +282,39 @@
     </div>
   </section>
 
-  <!-- MANUAL -->
-  <section id="manual" class="seccion gris">
-    <div class="contenedor">
-      <h2 data-es="Manual de HTML y CSS" data-en="HTML & CSS Manual">Manual de HTML y CSS</h2>
-      <embed src="MANUAL-HTML-Y-CSS.pdf" class="pdf" type="application/pdf" data-es="Manual de HTML y CSS" data-en="HTML & CSS Manual">
-    </div>
-  </section>
-
   <!-- FOOTER -->
-  <footer>
+  <footer id="contacto">
+    <div class="contenedor-footer">
+      <div class="footer-seccion">
+        <h3 data-es="Documento" data-en="Document">Documento</h3>
+        <a href="MANUAL-HTML-Y-CSS.pdf" download data-es="Descargar Manual" data-en="Download Manual">Descargar Manual</a>
+      </div>
+      <div class="footer-seccion">
+        <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
+        <p data-es="learningkodesKontact@gmail.com" data-en="learningkodesKontact@gmail.com">learningkodesKontact@gmail.com</p>
+      </div>
+      <div class="footer-seccion">
+        <h3 data-es="Redes" data-en="Social Media">Redes</h3>
+        <div class="redes-sociales">
+          <a href="https://youtube.com/@learningkodes?si=SQfU-CWgqLbkymQH" target="_blank">
+            <img src="img/youtube-icon.png" alt="YouTube" style="width: 30px;" data-es="YouTube" data-en="YouTube">
+          </a>
+          <a href="https://t.me/learningkodes" target="_blank">
+            <img src="img/telegram-icon.png" alt="Telegram" style="width: 30px;" data-es="Telegram" data-en="Telegram">
+          </a>
+        </div>
+      </div>
+    </div>
     <p data-es="Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103" data-en="Project created by <strong>Jhon Luis Mejía Niño</strong> and <strong>Fabián Steven Devia Moreno</strong> – Class 1103">Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103</p>
   </footer>
 
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
   <script>
-    console.log("¿Splide está funcionando?");
+    let currentLanguage = 'es';
+    let activeImage = null;
+    let activeSection = null;
+
     document.addEventListener('DOMContentLoaded', function () {
       const s = new Splide('.splide', {
         type: 'loop',
@@ -162,53 +322,131 @@
         autoplay: true,
         interval: 2000,
       });
-      console.log("Inicializando Splide...", s);
       s.mount();
+
+      // Event listener to close Quiénes Somos info when clicking outside
+      document.addEventListener('click', function(event) {
+        const quienesInfo = document.getElementById('quienes-info');
+        const isClickInside = event.target.closest('.img-btn') || 
+                             event.target.closest('#quienes-info');
+        
+        if (!isClickInside && activeSection === 'quienes' && activeImage !== null) {
+          quienesInfo.style.display = 'none';
+          activeImage = null;
+          activeSection = null;
+        }
+      });
     });
 
     function toggleSidebar() {
       document.getElementById("sidebar").classList.toggle("open");
     }
 
-    function cambiarIdioma(lang) {
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+      const button = document.getElementById('language-toggle');
+      const languageBtn = document.querySelector('.language-btn');
+      button.textContent = currentLanguage === 'es' ? 'Inglés' : 'Spanish';
+      languageBtn.textContent = currentLanguage === 'es' ? 'Inglés' : 'Spanish';
       document.querySelectorAll("[data-es]").forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${lang}`);
-        if (el.tagName === 'IMG' || el.tagName === 'VIDEO' || el.tagName === 'EMBED') {
-          el.alt = el.getAttribute(`data-${lang}`);
+        const newContent = el.getAttribute(`data-${currentLanguage}`);
+        if (el.tagName === 'IMG' || el.tagName === 'VIDEO') {
+          el.alt = newContent;
+        } else {
+          el.innerHTML = newContent;
         }
       });
+      // Preserve profile cards or active profile state
+      if (activeSection !== 'perfiles') {
+        document.getElementById('perfiles-contenedor').style.display = 'flex';
+        document.getElementById('perfiles-buttons').style.display = 'none';
+        document.getElementById('perfiles-info').style.display = 'none';
+      } else if (activeImage !== null) {
+        mostrarimagen(activeImage);
+      }
     }
 
     function mostrarimagen(num) {
-      // Ocultar todas las imágenes de la galería
-      for (let i = 1; i <= 6; i++) {
-        const imgEl = document.getElementById("img" + i);
-        if (imgEl) imgEl.style.display = "none";
-      }
-      // Ocultar contenedor info-persona
-      const infoCont = document.getElementById("info-persona");
-      if (infoCont) infoCont.style.display = "none";
+      const quienesInfo = document.getElementById('quienes-info');
+      const solucionInfo = document.getElementById('solucion-info');
+      const perfilesInfo = document.getElementById('perfiles-info');
+      const perfilesContenedor = document.getElementById('perfiles-contenedor');
+      const perfilesButtons = document.getElementById('perfiles-buttons');
 
-      // Mostrar imágenes del 1 al 4
+      // Handle Quiénes Somos images
       if (num >= 1 && num <= 4) {
-        const imgEl = document.getElementById("img" + num);
-        if (imgEl) imgEl.style.display = "block";
+        const imgEl = document.getElementById('quienes-img');
+        imgEl.src = num === 1 ? './img/fonditomission.png' :
+                    num === 2 ? './img/fonditovision.png' :
+                    num === 3 ? './img/fonditogeneral.png' :
+                    './img/fonditospecific.png';
+        imgEl.alt = num === 1 ? (currentLanguage === 'es' ? 'Misión' : 'Mission') :
+                    num === 2 ? (currentLanguage === 'es' ? 'Visión' : 'Vision') :
+                    num === 3 ? (currentLanguage === 'es' ? 'Objetivo General' : 'General Objective') :
+                    (currentLanguage === 'es' ? 'Objetivo Específico' : 'Specific Objective');
+        quienesInfo.style.display = 'flex';
+        solucionInfo.style.display = 'none';
+        perfilesInfo.style.display = 'none';
+        perfilesContenedor.style.display = 'flex';
+        perfilesButtons.style.display = 'none';
+        activeImage = num;
+        activeSection = 'quienes';
       }
-
-      // Mostrar persona + texto para 5 y 6
-      if (num === 5 || num === 6) {
-        const infoDiv = document.getElementById("info-persona");
-        const imgP = document.getElementById("persona-img");
-        const textoP = document.getElementById("persona-texto");
-        infoDiv.style.display = "flex";
+      // Handle Perfiles
+      else if (num === 5 || num === 6) {
+        // Toggle off if the same profile is clicked
+        if (activeSection === 'perfiles' && activeImage === num) {
+          perfilesInfo.style.display = 'none';
+          perfilesContenedor.style.display = 'flex';
+          perfilesButtons.style.display = 'none';
+          activeImage = null;
+          activeSection = null;
+          quienesInfo.style.display = 'none';
+          solucionInfo.style.display = 'none';
+          return;
+        }
+        const perfilImg = document.getElementById('perfil-img');
+        const perfilTexto = document.getElementById('perfil-texto');
+        perfilesInfo.style.display = 'flex';
+        perfilesContenedor.style.display = 'none';
+        perfilesButtons.style.display = 'flex';
+        quienesInfo.style.display = 'none';
+        solucionInfo.style.display = 'none';
 
         if (num === 5) {
-          imgP.src = "./img/JLMN.jpg";
-          textoP.innerHTML = `<h3 data-es="Luis Niño" data-en="Luis Niño">Luis Niño</h3><p data-es="Estudiante apasionado por la tecnología y el desarrollo web. Siempre busca aprender algo nuevo y compartir sus conocimientos con los demás." data-en="Passionate student about technology and web development. Always eager to learn something new and share knowledge with others.">Estudiante apasionado por la tecnología y el desarrollo web. Siempre busca aprender algo nuevo y compartir sus conocimientos con los demás.</p>`;
+          perfilImg.src = './img/JLMN.jpg';
+          perfilImg.alt = currentLanguage === 'es' ? 'Luis Niño' : 'Luis Niño';
+          perfilTexto.innerHTML = `<h3 data-es="Luis Niño" data-en="Luis Niño">${currentLanguage === 'es' ? 'Luis Niño' : 'Luis Niño'}</h3><p data-es="Jhon Luis Mejía Niño, conocido como JLMC, es el programador y diseñador de la página web, encargado de darle forma, estilo y funcionalidad a la plataforma. Con 18 años, combina su pasión por la tecnología con la creatividad digital, asegurándose de que cada detalle funcione a la perfección. Más allá del código, disfruta de jugar Minecraft, crear contenido en YouTube y siempre encuentra motivación en la búsqueda de nuevas oportunidades y crecimiento personal." data-en="Jhon Luis Mejía Niño, known as JLMC, is the programmer and designer of the website, responsible for shaping, styling, and ensuring the platform's functionality. At 18 years old, he combines his passion for technology with digital creativity, ensuring every detail works perfectly. Beyond coding, he enjoys playing Minecraft, creating YouTube content, and is always motivated by seeking new opportunities and personal growth.">${currentLanguage === 'es' ? 'Jhon Luis Mejía Niño, conocido como JLMC, es el programador y diseñador de la página web, encargado de darle forma, estilo y funcionalidad a la plataforma. Con 18 años, combina su pasión por la tecnología con la creatividad digital, asegurándose de que cada detalle funcione a la perfección. Más allá del código, disfruta de jugar Minecraft, crear contenido en YouTube y siempre encuentra motivación en la búsqueda de nuevas oportunidades y crecimiento personal.' : 'Jhon Luis Mejía Niño, known as JLMC, is the programmer and designer of the website, responsible for shaping, styling, and ensuring the platform\'s functionality. At 18 years old, he combines his passion for technology with digital creativity, ensuring every detail works perfectly. Beyond coding, he enjoys playing Minecraft, creating YouTube content, and is always motivated by seeking new opportunities and personal growth.'}</p>`;
         } else {
-          imgP.src = "./img/FSDM.jpg";
-          textoP.innerHTML = `<h3 data-es="Fabián Devia" data-en="Fabián Devia">Fabián Devia</h3><p data-es="Creativo e innovador, enfocado en el diseño y la experiencia del usuario. Cree en el poder de la educación para cambiar el mundo." data-en="Creative and innovative, focused on design and user experience. Believes in the power of education to change the world.">Creativo e innovador, enfocado en el diseño y la experiencia del usuario. Cree en el poder de la educación para cambiar el mundo.</p>`;
+          perfilImg.src = './img/FSDM.jpg';
+          perfilImg.alt = currentLanguage === 'es' ? 'Fabián Devia' : 'Fabián Devia';
+          perfilTexto.innerHTML = `<h3 data-es="Fabián Devia" data-en="Fabián Devia">${currentLanguage === 'es' ? 'Fabián Devia' : 'Fabián Devia'}</h3><p data-es="Fabián Steven Devia Moreno, de 17 años, es estudiante de grado 11 y aficionado al diseño gráfico. En este proyecto aporta principalmente como generador y redactor de la información que se encuentra en la página, suministrándola a esta. Además de su interés académico, disfruta de Clash Royale y es apasionado por representaciones gráficas que resaltan lo macabro y lo visceral, como lenguaje estético, lo que le da un enfoque auténtico y propio." data-en="Fabián Steven Devia Moreno, 17 years old, is an 11th-grade student and graphic design enthusiast. In this project, he primarily contributes as the creator and writer of the content found on the website. Beyond his academic interests, he enjoys playing Clash Royale and is passionate about graphic representations that highlight the macabre and visceral as an aesthetic language, giving him an authentic and unique approach.">${currentLanguage === 'es' ? 'Fabián Steven Devia Moreno, de 17 años, es estudiante de grado 11 y aficionado al diseño gráfico. En este proyecto aporta principalmente como generador y redactor de la información que se encuentra en la página, suministrándola a esta. Además de su interés académico, disfruta de Clash Royale y es apasionado por representaciones gráficas que resaltan lo macabro y lo visceral, como lenguaje estético, lo que le da un enfoque auténtico y propio.' : 'Fabián Steven Devia Moreno, 17 years old, is an 11th-grade student and graphic design enthusiast. In this project, he primarily contributes as the creator and writer of the content found on the website. Beyond his academic interests, he enjoys playing Clash Royale and is passionate about graphic representations that highlight the macabre and visceral as an aesthetic language, giving him an authentic and unique approach.'}</p>`;
         }
+        activeImage = num;
+        activeSection = 'perfiles';
+      }
+    }
+
+    function mostrarSolucion() {
+      const quienesInfo = document.getElementById('quienes-info');
+      const solucionInfo = document.getElementById('solucion-info');
+      const perfilesInfo = document.getElementById('perfiles-info');
+      const perfilesContenedor = document.getElementById('perfiles-contenedor');
+      const perfilesButtons = document.getElementById('perfiles-buttons');
+
+      // Toggle Solución Tecnológica
+      if (activeSection === 'solucion' && activeImage === 'solucion') {
+        solucionInfo.style.display = 'none';
+        activeImage = null;
+        activeSection = null;
+      } else {
+        quienesInfo.style.display = 'none';
+        perfilesInfo.style.display = activeSection === 'perfiles' ? 'flex' : 'none';
+        perfilesContenedor.style.display = activeSection === 'perfiles' ? 'none' : 'flex';
+        perfilesButtons.style.display = activeSection === 'perfiles' ? 'flex' : 'none';
+        solucionInfo.style.display = 'flex';
+        activeImage = 'solucion';
+        activeSection = 'solucion';
       }
     }
 
@@ -227,9 +465,9 @@
 
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
-        document.title = "Regresa :'(";
+        document.title = currentLanguage === 'es' ? "Regresa :'(" : "Come back :_(";
       } else {
-        document.title = "Gracias por volver ^⁠_⁠^";
+        document.title = currentLanguage === 'es' ? "Gracias por volver ^⁠_⁠^" : "Thanks for coming back ^⁠_⁠^";
       }
     });
 
