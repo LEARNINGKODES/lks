@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
 </head>
 <body class="tema-oscuro">
-  <!-- HEADER -->
   <header class="header">
     <div class="contenedor-header">
       <div class="logo">
@@ -26,8 +25,6 @@
       <button class="toggle-btn" onclick="toggleSidebar()" data-es="☰" data-en="☰">☰</button>
     </div>
   </header>
-
-  <!-- SIDEBAR -->
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-header">
       <h2 data-es="Learning Kodes" data-en="Learning Kodes">Learning Kodes</h2>
@@ -36,8 +33,9 @@
     <div class="sidebar-opciones">
       <h3 data-es="Solución Tecnológica" data-en="Technological Solution">Solución Tecnológica</h3>
       <button class="btn juego-btn" onclick="window.location.href='juego.html'" data-es="Juego" data-en="Game">Juego</button>
+      <button class="btn juego-btn" onclick="window.location.href='./SUBMENÚ/aprende2.html'" data-es="LKODES" data-en="LKODES">LKODES</button>
       <h3 data-es="Menú" data-en="Menu">Menú</h3>
-      <button class="btn menu-btn" onclick="window.location.href='menu.html'" data-es="Menú Principal" data-en="Main Menu">Menú Principal</button>
+      <button class="btn menu-btn" onclick="window.location.href='menu.html'" data-es="Menú" data-en="Menu">Menú</button>
       <button class="btn language-btn" onclick="toggleLanguage()" data-es="Inglés" data-en="Spanish">Inglés</button>
       <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
       <p data-es="learningkodesKontact@gmail.com" data-en="learningkodesKontact@gmail.com">learningkodesKontact@gmail.com</p>
@@ -52,112 +50,97 @@
       </div>
     </div>
   </aside>
-
-  <!-- SLIDER con Splide -->
   <section class="jlmn">
     <div class="splide" aria-label="Galería de imágenes">
       <div class="splide__track">
         <ul class="splide__list">
+    
           <li class="splide__slide">
             <img src="./img/SLIDE11.jpg" alt="Diapositiva 1" data-es="Diapositiva 1" data-en="Slide 1">
-            <div class="slide-description">
-              <p data-es="Introducción a la programación interactiva." data-en="Introduction to interactive programming."></p>
-            </div>
           </li>
-          <li class="splide__slide">
-            <img src="./img/evidencia1 (1).png" alt="Evidencia 1" data-es="Evidencia 1" data-en="Evidence 1">
-            <div class="slide-description">
-              <p data-es="Captura de nuestro primer proyecto educativo." data-en="Screenshot of our first educational project."></p>
-            </div>
-          </li>
-          <li class="splide__slide">
-            <img src="./img/SLIDE14.jpg" alt="Diapositiva 2" data-es="Diapositiva 2" data-en="Slide 2">
-            <div class="slide-description">
-              <p data-es="Explorando conceptos avanzados de codificación." data-en="Exploring advanced coding concepts."></p>
-            </div>
-          </li>
+    
           <li class="splide__slide">
             <img src="./img/evidencia1 (2).png" alt="Evidencia 2" data-es="Evidencia 2" data-en="Evidence 2">
             <div class="slide-description">
-              <p data-es="Interfaz de usuario en desarrollo." data-en="User interface in development."></p>
+              <p data-es="Explicación clara y detallada del funcionamiento de nuestro proyecto." data-en="Clear and detailed explanation of how our project works.">Explicación clara y detallada del funcionamiento de nuestro proyecto.</p>
             </div>
           </li>
+
           <li class="splide__slide">
             <img src="./img/SLIDE12.jpg" alt="Diapositiva 3" data-es="Diapositiva 3" data-en="Slide 3">
-            <div class="slide-description">
-              <p data-es="Demostración de juegos educativos." data-en="Demonstration of educational games."></p>
-            </div>
           </li>
+   
           <li class="splide__slide">
             <img src="./img/evidencia1 (3).png" alt="Evidencia 3" data-es="Evidencia 3" data-en="Evidence 3">
             <div class="slide-description">
-              <p data-es="Prototipo de aplicación interactiva." data-en="Prototype of an interactive application."></p>
+              <p data-es="Fabián explicando con pasión el propósito y el impacto de nuestro proyecto." data-en="Fabián passionately explaining the purpose and impact of our project.">Fabián explicando con pasión el propósito y el impacto de nuestro proyecto.</p>
             </div>
           </li>
+    
           <li class="splide__slide">
             <img src="./img/SLIDE13.jpg" alt="Diapositiva 4" data-es="Diapositiva 4" data-en="Slide 4">
-            <div class="slide-description">
-              <p data-es="Diseño final de la plataforma." data-en="Final design of the platform."></p>
-            </div>
           </li>
+   
           <li class="splide__slide">
             <img src="./img/lks (1).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Recursos adicionales para aprendizaje." data-en="Additional learning resources."></p>
+              <p data-es="Niños explorando la página web con curiosidad, probando sus funciones y descubriendo cómo interactúa todo." data-en="Children curiously exploring the website, testing its features and discovering how everything interacts.">Niños explorando la página web con curiosidad, probando sus funciones y descubriendo cómo interactúa todo.</p>
             </div>
           </li>
+  
           <li class="splide__slide">
             <img src="./img/lks (10).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Ejemplo de código funcional." data-en="Example of functional code."></p>
+              <p data-es="Se les estaba enseñando a los niños cómo ingresar a la página web LearningKodes, ya disponible en:learningkodes.github.io/lks/" data-en="Children were being taught how to access the LearningKodes website, now available at: learningkodes.github.io/lks/">Se les estaba enseñando a los niños cómo ingresar a la página web LearningKodes, ya disponible en: learningkodes.github.io/lks/</p>
             </div>
           </li>
+   
           <li class="splide__slide">
             <img src="./img/lks (2).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Interfaz de usuario optimizada." data-en="Optimized user interface."></p>
+              <p data-es="Jhon Luis enseñando a los niños la página web como ejemplo práctico de lo que se puede crear con HTML y CSS." data-en="Jhon Luis showing the kids the website as a hands-on example of what you can build with HTML and CSS.">Jhon Luis enseñando a los niños la página web como ejemplo práctico de lo que se puede crear con HTML y CSS.</p>
             </div>
           </li>
+   
           <li class="splide__slide">
             <img src="./img/lks (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Pruebas de usabilidad." data-en="Usability testing."></p>
+              <p data-es="Aquí también, compartiendo la experiencia con los estudiantes de quinto grado." data-en="Here too, sharing the experience with the fifth-grade students.">Aquí también, compartiendo la experiencia con los estudiantes de quinto grado.</p>
             </div>
           </li>
+     
           <li class="splide__slide">
             <img src="./img/lks (5).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Diseño de niveles de juego." data-en="Game level design."></p>
+              <p data-es="Los niños ya estaban dentro de nuestra solución tecnológica (el juego), aprendiendo los fundamentos de HTML y CSS de forma divertida." data-en="The kids were already inside our tech solution (the game), learning the basics of HTML and CSS in a fun way.">Los niños ya estaban dentro de nuestra solución tecnológica (el juego), aprendiendo los fundamentos de HTML y CSS de forma divertida.</p>
             </div>
           </li>
+ 
           <li class="splide__slide">
             <img src="./img/lks (6).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Progreso del desarrollo del juego." data-en="Game development progress."></p>
+              <p data-es="Les estábamos enseñando la otra solución tecnológica, donde pueden ver y explorar los códigos básicos de HTML y CSS en acción." data-en="We were showing them the other tech solution, where they can view and explore the basic HTML and CSS code in action.">Les estábamos enseñando la otra solución tecnológica, donde pueden ver y explorar los códigos básicos de HTML y CSS en acción.</p>
             </div>
           </li>
-          <li class="splide__slide">
-            <img src="./img/lks (7).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
-            <div class="slide-description">
-              <p data-es="Integración de elementos interactivos." data-en="Integration of interactive elements."></p>
-            </div>
-          </li>
+          
           <li class="splide__slide">
             <img src="./img/lks (8).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Pruebas de compatibilidad." data-en="Compatibility testing."></p>
+              <p data-es="Los niños aprendiendo a programar con LearningKodes de forma práctica y divertida." data-en="Kids learning to code with LearningKodes in a hands-on and fun way">Los niños aprendiendo a programar con LearningKodes de forma práctica y divertida.</p>
             </div>
           </li>
+         
           <li class="splide__slide">
             <img src="./img/lks (9).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Optimización de rendimiento." data-en="Performance optimization."></p>
+              <p data-es="Optimización de rendimiento." data-en="Performance optimization.">Optimización de rendimiento.</p>
             </div>
           </li>
+  
           <li class="splide__slide">
             <img src="./img/evidencia1 (4).png" alt="Evidencia Extra" data-es="Evidencia Extra" data-en="Extra Evidence">
             <div class="slide-description">
-              <p data-es="Vista previa de la plataforma completa." data-en="Preview of the complete platform."></p>
+              <p data-es="Fabián respondiendo con claridad y entusiasmo a las preguntas de los niños sobre el juego y la página web." data-en="Fabián answering the kids’ questions about the game and website with clarity and enthusiasm.">Fabián respondiendo con claridad y entusiasmo a las preguntas de los niños sobre el juego y la página web.</p>
             </div>
           </li>
         </ul>
@@ -169,34 +152,44 @@
       <a href="menu.html" class="btn" data-es="Comenzar" data-en="Start">Comenzar</a>
     </div>
   </section>
-
-  <!-- PREGUNTA PROBLEMA -->
   <section id="pregunta-problema" class="seccion">
     <div class="contenedor">
       <h2 data-es="Pregunta Problema" data-en="Problem Question">Pregunta Problema</h2>
       <div class="pregunta-imagen">
-        <img src="./img/pregunta-problema.png" alt="Pregunta Problema" data-es="Pregunta Problema: ¿Cómo enseñar programación de forma efectiva?" data-en="Problem Question: How to teach programming effectively?">
+        <img src="./img/pregunta.png"
+          id="pregunta-img"
+          data-es-img="./img/pregunta.png"
+          data-en-img="./img/pregunta.png"
+          alt="Pregunta Problema"
+          data-es="Pregunta Problema: ¿Cómo enseñar programación de forma efectiva?" data-en="Problem Question: How to teach programming effectively?">
       </div>
     </div>
   </section>
-
-  <!-- QUIÉNES SOMOS -->
   <section id="quienes-somos" class="seccion">
     <div class="contenedor">
       <h2 data-es="Quiénes Somos" data-en="Who We Are">Quiénes Somos</h2>
-      <div class="botones">
-        <button class="img-btn" onclick="mostrarimagen(1)" data-es="Misión" data-en="Mission">Misión</button>
-        <button class="img-btn" onclick="mostrarimagen(2)" data-es="Visión" data-en="Vision">Visión</button>
-        <button class="img-btn" onclick="mostrarimagen(3)" data-es="Objetivo General" data-en="General Objective">Objetivo General</button>
-        <button class="img-btn" onclick="mostrarimagen(4)" data-es="Objetivo Específico" data-en="Specific Objective">Objetivo Específico</button>
-      </div>
-      <div id="quienes-info" style="display: none;">
-        <img id="quienes-img" src="" alt="Quiénes Somos" style="width: 600px;" data-es="Quiénes Somos" data-en="Who We Are">
+      <div class="quienes-wrap">
+        <div class="botones">
+          <button class="img-btn" onclick="mostrarimagen(1)" data-es="Misión" data-en="Mission">Misión</button>
+          <button class="img-btn" onclick="mostrarimagen(2)" data-es="Visión" data-en="Vision">Visión</button>
+          <button class="img-btn" onclick="mostrarimagen(3)" data-es="Objetivo General" data-en="General Objective">Objetivo General</button>
+          <button class="img-btn" onclick="mostrarimagen(4)" data-es="Objetivo Específico" data-en="Specific Objective">Objetivo Específico</button>
+        </div>
+        <div id="quienes-info">
+          <img id="quienes-img"
+            data-es-img="./img/FMiss.jpg"
+            data-en-img="./img/FMiss.jpg"
+            data-es-img-2="./img/FVisi.jpg"
+            data-en-img-2="./img/FVisi.jpg"
+            data-es-img-3="./img/Fgen.jpg"
+            data-en-img-3="./img/Fgen.jpg"
+            data-es-img-4="./img/Fspe.jpg"
+            data-en-img-4="./img/Fspe.jpg">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUCIÓN TECNOLÓGICA -->
   <section id="solucion-tecnologica" class="seccion">
     <div class="contenedor">
       <h2 data-es="Solución Tecnológica" data-en="Technological Solution">Solución Tecnológica</h2>
@@ -206,23 +199,18 @@
       <div id="solucion-info" style="display: none;">
         <div class="solucion-contenido">
           <div class="solucion-texto">
-            <p data-es="La única solución tecnológica propuesta consiste en la implementación de un juego interactivo educativo dentro de la página web. Este juego tiene como finalidad enseñar a los niños los fundamentos básicos de la programación en HTML y CSS de una forma dinámica y entretenida. Mediante diversos retos y actividades, el usuario aprende los principios del desarrollo web mientras obtiene recompensas y disfruta del proceso de aprendizaje.
-
-            Esta solución tecnológica resulta efectiva, ya que combina el aprendizaje práctico con la diversión, lo que facilita la comprensión de los conceptos y motiva al usuario a continuar desarrollando sus habilidades en programación." data-en="The only technological solution proposed is the implementation of an interactive educational game within the website. This game aims to teach children the fundamentals of HTML and CSS programming in a dynamic and entertaining way. Through various challenges and activities, users learn the principles of web development while earning rewards and enjoying the learning process.
-
-            This technological solution is effective because it combines hands-on learning with fun, facilitating the understanding of concepts and motivating users to continue developing their programming skills.">La única solución tecnológica propuesta consiste en la implementación de un juego interactivo educativo dentro de la página web. Este juego tiene como finalidad enseñar a los niños los fundamentos básicos de la programación en HTML y CSS de una forma dinámica y entretenida. Mediante diversos retos y actividades, el usuario aprende los principios del desarrollo web mientras obtiene recompensas y disfruta del proceso de aprendizaje.
-
-            Esta solución tecnológica resulta efectiva, ya que combina el aprendizaje práctico con la diversión, lo que facilita la comprensión de los conceptos y motiva al usuario a continuar desarrollando sus habilidades en programación.</p>
+            <p data-es="Hemos creado una página web con códigos básicos de HTML y CSS que incluye un juego interactivo educativo. Su objetivo es enseñar a los niños los fundamentos de la programación de forma divertida y práctica, mediante retos y actividades que combinan aprendizaje y entretenimiento, facilitando la comprensión y motivando a seguir aprendiendo." data-en="We created a website using basic HTML and CSS that includes an educational interactive game. Its goal is to teach children the fundamentals of programming in a fun and practical way through challenges and activities that combine learning and entertainment, making it easier to understand and encouraging them to keep learning.
+            ">Hemos creado una página web con códigos básicos de HTML y CSS que incluye un juego interactivo educativo. Su objetivo es enseñar a los niños los fundamentos de la programación de forma divertida y práctica, mediante retos y actividades que combinan aprendizaje y entretenimiento, facilitando la comprensión y motivando a seguir aprendiendo.
+          </p>
           </div>
           <div class="solucion-video">
-            <video src="./videosis/Learningkodes.mp4" controls style="width: 100%;" data-es="Video de la solución tecnológica" data-en="Technological solution video"></video>
+            <video src="./videosis/st.mp4" controls style="width: 100%;" data-es="Video de la solución tecnológica" data-en="Technological solution video"></video>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PERFILES -->
   <section id="perfiles" class="seccion">
     <div class="contenedor">
       <h2 data-es="Perfiles" data-en="Profiles">Perfiles</h2>
@@ -251,7 +239,6 @@
     </div>
   </section>
 
-  <!-- OBJETIVOS -->
   <section id="secciones" class="seccion">
     <div class="contenedor">
       <h2 data-es="¿Qué buscamos?" data-en="What are we looking for?">¿Qué buscamos?</h2>
@@ -263,7 +250,6 @@
     </div>
   </section>
 
-  <!-- VIDEOS -->
   <section id="trailers" class="videos">
     <h2 data-es="Videos Learning Kodes" data-en="Learning Kodes Videos">Videos Learning Kodes</h2>
     <div class="contenedor-videos">
@@ -281,12 +267,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="contacto">
     <div class="contenedor-footer">
       <div class="footer-seccion">
         <h3 data-es="Documento" data-en="Document">Documento</h3>
-        <a href="MANUAL-HTML-Y-CSS.pdf" download data-es="Descargar Manual" data-en="Download Manual">Descargar Manual</a>
+        <a href="DOCUMENTO.HTML" download data-es="Ver Documento" data-en="SEE Document">Ver Documento</a>
       </div>
       <div class="footer-seccion">
         <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
@@ -307,7 +292,6 @@
     <p data-es="Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103" data-en="Project created by <strong>Jhon Luis Mejía Niño</strong> and <strong>Fabián Steven Devia Moreno</strong> – Class 1103">Proyecto creado por <strong>Jhon Luis Mejía Niño</strong> y <strong>Fabián Steven Devia Moreno</strong> – Curso 1103</p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
   <script>
     let currentLanguage = 'es';
@@ -322,15 +306,16 @@
         interval: 2000,
       });
       s.mount();
-
-      // Event listener to close Quiénes Somos info when clicking outside
       document.addEventListener('click', function(event) {
         const quienesInfo = document.getElementById('quienes-info');
+        const wrap = document.querySelector('#quienes-somos .quienes-wrap');
         const isClickInside = event.target.closest('.img-btn') || 
                              event.target.closest('#quienes-info');
-        
+
         if (!isClickInside && activeSection === 'quienes' && activeImage !== null) {
           quienesInfo.style.display = 'none';
+          if (wrap) wrap.classList.remove('show-image');
+          document.querySelectorAll('#quienes-somos .botones .img-btn').forEach(b => b.classList.remove('active'));
           activeImage = null;
           activeSection = null;
         }
@@ -346,16 +331,41 @@
       const button = document.getElementById('language-toggle');
       const languageBtn = document.querySelector('.language-btn');
       button.textContent = currentLanguage === 'es' ? 'Inglés' : 'Spanish';
-      languageBtn.textContent = currentLanguage === 'es' ? 'Inglés' : 'Spanish';
+      if (languageBtn) languageBtn.textContent = currentLanguage === 'es' ? 'Inglés' : 'Spanish';
+
       document.querySelectorAll("[data-es]").forEach(el => {
         const newContent = el.getAttribute(`data-${currentLanguage}`);
-        if (el.tagName === 'IMG' || el.tagName === 'VIDEO') {
+        if (newContent == null) return;
+
+        const tag = el.tagName.toUpperCase();
+        if (tag === 'IMG' || tag === 'VIDEO') {
           el.alt = newContent;
-        } else {
+          return;
+        }
+        const hasHTML = /<[^>]+>/.test(newContent);
+        if (hasHTML) {
           el.innerHTML = newContent;
+        } else if (el.children.length === 0) {
+          el.textContent = newContent;
+        } else {
+          if (el.hasAttribute('aria-label')) {
+            el.setAttribute('aria-label', newContent);
+          } else {
+            el.setAttribute('title', newContent);
+          }
         }
       });
-      // Preserve profile cards or active profile state
+      // Cambia imágenes con data-es-img y data-en-img
+      document.querySelectorAll('[data-es-img]').forEach(img => {
+        // Si está mostrando una imagen de quienes-somos, actualiza según el botón activo
+        if (img.id === 'quienes-img' && activeSection === 'quienes' && activeImage >= 1 && activeImage <= 4) {
+          img.src = img.getAttribute(`data-${currentLanguage}-img${activeImage === 1 ? '' : '-' + activeImage}`);
+        } else {
+          const newSrc = img.getAttribute(`data-${currentLanguage}-img`);
+          if (newSrc) img.src = newSrc;
+        }
+      });
+
       if (activeSection !== 'perfiles') {
         document.getElementById('perfiles-contenedor').style.display = 'flex';
         document.getElementById('perfiles-buttons').style.display = 'none';
@@ -371,19 +381,22 @@
       const perfilesInfo = document.getElementById('perfiles-info');
       const perfilesContenedor = document.getElementById('perfiles-contenedor');
       const perfilesButtons = document.getElementById('perfiles-buttons');
-
-      // Handle Quiénes Somos images
+      const wrap = document.querySelector('#quienes-somos .quienes-wrap');
+      const botones = document.querySelectorAll('#quienes-somos .botones .img-btn');
       if (num >= 1 && num <= 4) {
         const imgEl = document.getElementById('quienes-img');
-        imgEl.src = num === 1 ? './img/fonditomission.png' :
-                    num === 2 ? './img/fonditovision.png' :
-                    num === 3 ? './img/fonditogeneral.png' :
-                    './img/fonditospecific.png';
+        imgEl.src = imgEl.getAttribute(`data-${currentLanguage}-img${num === 1 ? '' : '-' + num}`);
         imgEl.alt = num === 1 ? (currentLanguage === 'es' ? 'Misión' : 'Mission') :
                     num === 2 ? (currentLanguage === 'es' ? 'Visión' : 'Vision') :
                     num === 3 ? (currentLanguage === 'es' ? 'Objetivo General' : 'General Objective') :
                     (currentLanguage === 'es' ? 'Objetivo Específico' : 'Specific Objective');
         quienesInfo.style.display = 'flex';
+        if (wrap) wrap.classList.add('show-image');
+        if (botones && botones.length) {
+          botones.forEach(b => b.classList.remove('active'));
+          const target = botones[num - 1];
+          if (target) target.classList.add('active');
+        }
         solucionInfo.style.display = 'none';
         perfilesInfo.style.display = 'none';
         perfilesContenedor.style.display = 'flex';
@@ -391,9 +404,7 @@
         activeImage = num;
         activeSection = 'quienes';
       }
-      // Handle Perfiles
       else if (num === 5 || num === 6) {
-        // Toggle off if the same profile is clicked
         if (activeSection === 'perfiles' && activeImage === num) {
           perfilesInfo.style.display = 'none';
           perfilesContenedor.style.display = 'flex';
@@ -406,10 +417,12 @@
         }
         const perfilImg = document.getElementById('perfil-img');
         const perfilTexto = document.getElementById('perfil-texto');
-        perfilesInfo.style.display = 'flex';
+  perfilesInfo.style.display = 'flex';
         perfilesContenedor.style.display = 'none';
         perfilesButtons.style.display = 'flex';
-        quienesInfo.style.display = 'none';
+  quienesInfo.style.display = 'none';
+  if (wrap) wrap.classList.remove('show-image');
+  document.querySelectorAll('#quienes-somos .botones .img-btn').forEach(b => b.classList.remove('active'));
         solucionInfo.style.display = 'none';
 
         if (num === 5) {
@@ -432,13 +445,14 @@
       const perfilesInfo = document.getElementById('perfiles-info');
       const perfilesContenedor = document.getElementById('perfiles-contenedor');
       const perfilesButtons = document.getElementById('perfiles-buttons');
-
-      // Toggle Solución Tecnológica
       if (activeSection === 'solucion' && activeImage === 'solucion') {
         solucionInfo.style.display = 'none';
         activeImage = null;
         activeSection = null;
       } else {
+        const wrap = document.querySelector('#quienes-somos .quienes-wrap');
+        if (wrap) wrap.classList.remove('show-image');
+        document.querySelectorAll('#quienes-somos .botones .img-btn').forEach(b => b.classList.remove('active'));
         quienesInfo.style.display = 'none';
         perfilesInfo.style.display = activeSection === 'perfiles' ? 'flex' : 'none';
         perfilesContenedor.style.display = activeSection === 'perfiles' ? 'none' : 'flex';
