@@ -425,6 +425,80 @@ html {
   max-width: 65%;
   margin: 0 auto;
 }
+#quienes-somos .quienes-wrap {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#quienes-somos .botones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 320px;
+  min-width: 220px;
+}
+
+#quienes-somos .botones .img-btn {
+  width: 100%;
+  padding: 20px 22px;
+  text-align: left;
+  font-size: 18px;
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), width 260ms ease, opacity 260ms ease;
+}
+.quienes-wrap.show-image .botones .img-btn {
+  transform: scale(0.96);
+  opacity: 0.95;
+}
+
+.quienes-wrap.show-image .botones .img-btn.active {
+  transform: scale(0.82) translateX(-8px);
+  box-shadow: 0 6px 14px rgba(0,119,255,0.18) inset;
+}
+#quienes-info {
+  display: none;
+  flex: 1 1 auto;  
+  max-width: none;  
+  width: calc(100% - 360px);  
+  box-sizing: border-box;  
+  margin: 0;
+  padding: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.quienes-wrap.show-image #quienes-info {
+  display: flex;
+}
+
+#quienes-info img#quienes-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 4px 12px rgba(0,119,255,0.12);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+@media (max-width: 900px) {
+  #quienes-somos .quienes-wrap {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  #quienes-somos .botones {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+  }
+
+  #quienes-info {
+    width: 100%;
+    padding: 18px;
+  }
+}
 
 .img-btn {
   background: linear-gradient(135deg, var(--color-gris), #001226);
